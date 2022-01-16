@@ -6,11 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Audio_Video_Iframe_Example</title>
+    <style>
+        #lohaVideo {
+            border: 1px solid red;
+        }
+
+        #iframeConsortium {
+            border: 1px solid blue;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <video width="500" height="100" autoplay controls muted>
+    <div id="lohaVideo">
+        <video width="300" height="200" autoplay controls muted>
             <source src="/video/로하첫생일.mp4" type="video/ogg" />
             <source src="/video/남동생얼굴마사지.mp4" type="video/ogg" />
             <p>your user agent does not support html5</p>
@@ -18,8 +27,8 @@
     </div>
     <br />
     <br />
-    <div>
-        <iframe src="" name="iframe01" width="1000" height="100"></iframe>
+    <div id="iframeConsortium">
+        <iframe src="" name="iframe01" width="1000" height="200"></iframe>
         <p>
             <a href="https://www.w3.org/" target="iframe01">
                 여기를 클릭하시면 iframe으로 월드와이드웹 컨소시엄 사이트가 열립니다.
@@ -28,7 +37,7 @@
     </div>
     <br />
     <br />
-    <div>
+    <!--<div>
         <textarea rows="10" cols="100">
             &lt;html&gt;
                 &lt;body&gt;
@@ -37,7 +46,10 @@
             &lt;/html&gt;
         </textarea>
         <iframe src="/HCJbook/source.html" width="500" height="200"></iframe>
-    </div>
+    </div>-->
+    <div style="background-color: brown; height: 20px;"></div>
+    <div style="background-color: yellow; height: 20px;"></div>
+    <div style="background-color: green; height: 20px;"></div>
 </body>
 
 </html>
