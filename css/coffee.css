@@ -1,0 +1,22 @@
+body {
+    background-color: yellow;
+    color: black;
+}
+h1,p {
+    font-family: serif;
+    color: black;
+}
+h1 {
+    color: red;
+    border-bottom: 1px solid gray;
+}
+em {
+    color: red;
+}
+p.first{
+    color: green;
+}
+p.second{
+    color: blue;
+}
+
