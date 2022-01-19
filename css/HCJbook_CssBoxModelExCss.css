@@ -34,3 +34,57 @@ div.shadowEx01 {
     background-color: green;
     box-shadow: 20px 10px 5px gray;
 }
+div.border_img_repetition {
+    width: 300px;
+    height: 20px;
+    border: 30px solid transparent;
+    border-image: url(/image/etc/border_img01.jpg) 30 30 round;
+    margin-top: 15px;
+    text-align: center;
+}
+p.thisIsP {
+    width: 100px;
+    height: 50px;
+    background-color: yellow;
+}
+div.thisIsDiv {
+    width: 100px;
+    height: 50px;
+    background-color: yellowgreen;
+}
+div.box_size_con {
+    border: 1px solid red;
+    background-color: yellow;
+    resize: both;
+    overflow: auto;
+    margin-top: 10px;
+}
+div.thisIsDivModel {
+    border: 3px solid red;
+    background-color: yellow;
+    margin-top: 10px;
+    padding: 10px;
+    width: 200px;
+}
+body {
+    background-image: url(/image/etc/border_img01.jpg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+}
+p a.AtagEx:link {
+    color: red;
+}
+p a.AtagEx:visited {
+    color: orange;
+}
+p a.AtagEx:hover {
+    color: yellow;
+    font-size: 150%;
+}
+p a.AtagEx:active {
+    color: green;
+}
+p a.AtagEx {
+    text-decoration: none;
+}
