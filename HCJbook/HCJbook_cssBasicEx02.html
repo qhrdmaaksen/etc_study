@@ -2,17 +2,136 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link type="text/css" rel="stylesheet" href="/css/mystyle.css">
+    <style>
+        h1 {
+            background-color: purple;
+        }
+
+        p.a {
+            background-color: red;
+        }
+
+        p.b {
+            background-color: green;
+        }
+
+        p.c {
+            background-color: blue;
+        }
+
+        p.d {
+            background-color: gray;
+        }
+
+        p#para01 {
+            font-size: medium;
+        }
+
+        p#para02 {
+            font-size: 1.5em;
+        }
+
+        p#para03 {
+            font-size: 2em;
+        }
+
+        h2 {
+            color: red;
+            text-align: center;
+        }
+
+        p.date {
+            text-align: right;
+        }
+
+        p.data {
+            text-align: justify;
+            border: 1px solid black;
+            column-count: 2;
+            column-gap: 50px;
+            column-rule: 2px outset cadetblue;
+        }
+
+        p.reference {
+            text-align: left;
+        }
+
+        body {
+            word-wrap: break-word;
+        }
+
+        .deco01 {
+            text-decoration-line: overline;
+        }
+
+        .deco02 {
+            text-decoration-line: line-through;
+            text-shadow: 3px 3px 3px red;
+        }
+
+        .deco03 {
+            text-decoration-line: underline;
+        }
+
+        p#textTran01 {
+            text-transform: uppercase;
+        }
+
+        p#textTran02 {
+            text-transform: lowercase;
+        }
+
+        p#textTran03 {
+            text-transform: capitalize;
+        }
+    </style>
 </head>
 
 <body>
-    <h4>This is a headline</h4>
-    <p>
-        This is a paragraph
+    <h1>CSS Color Chart</h1>
+    <p class="a">Color #1</p>
+    <p class="b">Color #2</p>
+    <p class="c">Color #3</p>
+    <p class="d">Color #4</p>
+    <p id="para01">paragraph</p>
+    <p id="para02">paragraph</p>
+    <p id="para03">paragraph</p>
+    <h2>CSS 텍스트 정렬 예제</h2>
+    <p class="date">20220120</p>
+    <p class="data">
+        Recent posts c언어 자료구조 part02! 6 minute read 자료 검색에는 선형검색과
+        이진검색이있다. 선형검색은 첫번째부터 순차적으로 검색하는 알고리즘을
+        만들고, 이진검색은 정렬을 이용해서 검색한다. 특히 이진검색은 1부터
+        10까지있다면 5의 중간값을 기준으로 1또는 10까지 검색방식 못 찾았다면 2부터
+        9 또 못찾으면 3부... 깃 기초 사용법을 알아두자!! 1 minute read 자주
+        쓰고있더라도 혹시 모를 미래의 당황할 나에게 깃에 대해 아예 기록해두자!
+        (MYSQL활용)방명록 만들기 과정(part03)! 1 minute read deleteBean.java ,
+        delete.jsp , delete_end.jsp 글 삭제 및 db 삭제 이 글을 삭제했을 때 화면과
+        db에서 삭제되는지 확인해보자! 삭제를 누르면 아래와 같은 화면으로 넘어간다.
+        관리자 id와 password 입력창
+    </p>
+    <p class="reference">
+        <em>참고 개발블로그</em>
+    </p>
+    <h1 class="deco01">텍스트 장식의 예</h1>
+    <h2 class="deco02">텍스트 장식의 예</h2>
+    <h3 class="deco03">텍스트 장식의 예</h3>
+    <h5>텍스트 변환 예제</h5>
+    <p id="textTran01">
+        "What are you going to do on your trip to the Big Apple ? I myself have been to New York several times. Lots of
+        things." Mom replied.
+    </p>
+    <p id="textTran02">
+        "We are going to eat a breakfast at the Embassy coffee shop. Besides we'll lunch and dinner at fancier places.
+    </p>
+    <p id="textTran03">
+        Anyway, after breakfast we're going to go to the Metropolitan Museum of Art. Then we'ill take a bus across
+        Central Park and go to the Museum of Natural History.
+        Then we'll head downtown and go shopping."
     </p>
 </body>
 

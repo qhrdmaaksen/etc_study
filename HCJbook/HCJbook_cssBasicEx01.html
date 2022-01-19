@@ -28,6 +28,31 @@
         body>h3 {
             color: blue;
         }
+
+        .webHead {
+            color: green;
+        }
+
+        .webData_para {
+            font-weight: bold;
+            color: coral;
+            font-style: italic;
+        }
+
+        .em_style {
+            color: coral;
+            font-weight: bold;
+        }
+
+        .webSub {
+            color: green;
+        }
+
+        .webData_sub02 {
+            color: red;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
     </style>
 </head>
 
@@ -46,6 +71,21 @@
         class 가type1인 단락입니다.
     </p>
     <h3>This headline is <em>very</em> important</h3>
+    <h4 class="webHead">웹 프로그래밍 교과목</h4>
+    <p class="webData">
+        웹 프로그래밍에서는 많은 관심을 받고있는 <span class="webData_para">html5</span> 와 <span class="webData_para">css3</span>를 중심으로
+        학습합니다. <strong>html5</strong> 의 <em class="em_style">많은 새로운 기능</em>들을 학습합니다.
+    </p>
+    <h4 class="webSub">다루는 주제들</h4>
+    <ul>
+        <li>
+            <strong>HTML5</strong>
+            <ul>
+                <li class="webData_sub02">지오 로케이션</li>
+                <li class="webData_sub02">드래그와 드롭</li>
+            </ul>
+        </li>
+    </ul>
 </body>
 
 </html>
