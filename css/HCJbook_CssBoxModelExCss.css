@@ -1,0 +1,36 @@
+p.four_border_dif {
+    border-top-style: dotted;
+    border-right-style: solid;
+    border-bottom-style: double;
+    border-left-style: dashed;
+}
+p.border_setting01 {
+    border-style: solid;
+    border-width: thick;
+}
+p.border_setting02 {
+    border-style: solid;
+    border-width: medium;
+}
+p.border_setting03 {
+    border-style: solid;
+    border-width: 1px;
+}
+p.border_color {
+    border-style: solid;
+    border-color: green;
+}
+p.border_radius {
+    border: 2px;
+    border-style: solid;
+    border-color: red;
+    background: yellow;
+    border-radius: 25px;
+    padding: 3px 0px 3px 5px;
+}
+div.shadowEx01 {
+    width: 300px;
+    height: 50px;
+    background-color: green;
+    box-shadow: 20px 10px 5px gray;
+}
