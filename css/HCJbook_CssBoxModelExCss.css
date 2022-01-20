@@ -66,7 +66,7 @@ div.thisIsDivModel {
     padding: 10px;
     width: 200px;
 }
-body {
+body#CBME01{
     background-image: url(/image/etc/border_img01.jpg);
     background-size: cover;
     background-attachment: scroll;
@@ -87,4 +87,73 @@ p a.AtagEx:active {
 }
 p a.AtagEx {
     text-decoration: none;
+}
+.list_01 {
+    list-style-type: circle;
+}
+.list_02 {
+    list-style-type: disc;
+}
+.list_03 {
+    list-style-type: square;
+}
+.nav_all_menu{
+    list-style: none;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    text-align: center;
+    width: 80%;
+    height: 20px;
+    margin-left: 10%;
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.nav_all_menu li{
+    display: inline;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    padding: 0 100px;
+}
+.nav_all_menu a:link {
+    text-decoration: none;
+    color: purple;
+}
+.nav_all_menu a:visited {
+    text-decoration: none;
+}
+.nav_all_menu a:hover {
+    text-decoration: underline;
+    color: royalblue;
+}
+.first_table01 {
+    border: 1px solid green;
+    width: 60%;
+    margin-left: 20%;
+    border-collapse: collapse;
+}
+.first_table01 th,td {
+    border: 1px solid green;
+}
+.first_table01 th {
+    background-color: blue;
+    color: white;
+    height: 50px;
+}
+.first_table01 td{
+    height: 30px;
+    text-align: center;
+    vertical-align: bottom;
+}
+.first_table_cap {
+    caption-side: bottom;
+}
+.second_email {
+    empty-cells: hide;
+}
+.first_table_tr03 {
+    background-color: yellow;
+}
+.first_table_tr05 {
+    background-color: yellow;
 }
