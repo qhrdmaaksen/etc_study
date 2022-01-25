@@ -114,7 +114,7 @@ img.float_property02{
 }
 #translate_test02 {
     transform: translate(100px,0px);
-    background-color: blue;
+    background-color: rgb(17, 17, 224);
 }
 #translate_test03 {
     transform: scale(1.2,1.2);
@@ -134,4 +134,19 @@ img.float_property02{
 #skew_test01 {
     transform: skew(30deg,20deg);
     background-color: blue;
+}
+article div {
+    clear: both;
+    background-color: green;
+    height: 150px;
+    width: 150px;
+}
+.trans01_3d {
+    background-color: yellow;
+    border: 1px solid black;
+}
+.trans02_3d {
+    backface-visibility: visible;
+    transform-origin: 50% 42%;
+    transform: perspective(500px) rotateY(59deg) rotateX(0deg);
 }
