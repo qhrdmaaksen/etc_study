@@ -150,3 +150,33 @@ article div {
     transform-origin: 50% 42%;
     transform: perspective(500px) rotateY(59deg) rotateX(0deg);
 }
+.animation_test00 {
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+    animation: 2s myani_test00;
+    animation-iteration-count: 10;
+}
+@keyframes myani_test00 {
+    0% {left: 0px; top: 0px;}
+    25% {left: 100px; top: 0px;}
+    50% {left: 200px; top: 0px;}
+    75% {left: 100px; top: 0px;}
+    100% {left: 0px; top: 0px;}
+}
+.animation_test01 {
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+    animation: 2s myani_test01;
+    animation-iteration-count: 10;
+}
+@keyframes myani_test01 {
+    0% {background-color: red; left: 0px; top: 0px;}
+    25% {background-color: red; left: 100px; top: 0px;}
+    50% {background-color: yellow; left: 200px; top: 0px;}
+    75% {background-color: blue; left: 100px; top: 0px;}
+    100% {background-color: blue; left: 0px; top: 0px;}
+}
