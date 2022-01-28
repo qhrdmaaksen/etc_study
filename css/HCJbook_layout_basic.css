@@ -199,3 +199,32 @@ article div {
         -webkit-animation-timing-function: ease-in;
     }        
 }
+#ex_a {
+    width: 300px;
+    height: 120px;
+    margin-top: 25px;
+    margin-left: 40px;
+}
+#ex_b {
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-left: 50px;
+
+}
+#trans_final_ex00 {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    animation: trans_final_ex00 10s;
+    transform-origin: 50% 50%;
+}
+#trans_final_ex00:hover {
+    background-color: yellow;
+    scale: 2.0em;
+    @keyframes cssRotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
