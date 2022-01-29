@@ -258,6 +258,7 @@ article div {
     position: relative;
     width: 200px;
     height: 200px;
+    margin-bottom: 200px;
     background-color: red;
     animation-name: rectangle_move;
     animation-duration: 5s;
@@ -280,4 +281,49 @@ article div {
     75% {top: 200px; left: 0px;}
     100% {top: 0px; left: 0px;}
 }
-
+.final_shadow_ex {
+    position: absolute;
+    font-size: 20px;
+    color: indigo;
+    text-shadow: 4px 2px 2px gray;
+}
+.lay_contain00 {
+    margin-top: 300px;
+}
+.left0top0 {
+    position: relative;
+    text-align: center;
+    height: 150px; 
+    width: 150px;
+    background-color: lightcoral;
+    border: 1px solid black;
+    float: left;
+}
+.right0top0 {
+    position: relative;
+    text-align: center;
+    height: 150px; 
+    width: 150px;
+    background-color: lightcoral;
+    border: 1px solid black;
+    float: left;
+}
+.left0bottom0 {
+    position: relative;
+    text-align: center;
+    height: 150px; 
+    width: 150px;
+    background-color: lightcoral;
+    border: 1px solid black;
+    clear: both;
+    float: left;
+}
+.right0bottom0 {
+    position: relative;
+    text-align: center;
+    border: 1px solid black;
+    height: 150px; 
+    width: 150px;
+    background-color: lightcoral;
+    float: left;
+}
