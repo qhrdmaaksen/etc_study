@@ -216,15 +216,38 @@ article div {
     width: 200px;
     height: 200px;
     background-color: red;
-    animation: trans_final_ex00 10s;
-    transform-origin: 50% 50%;
+    transition: all ease 2s;
 }
 #trans_final_ex00:hover {
     background-color: yellow;
-    scale: 2.0em;
-    @keyframes cssRotate {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+    transform: rotate(360deg) scale(2);
 }
+.final_lay_header {
+    background-color: yellow;
+}
+.final_lay_nav {
+    background-color: red;
+}
+.final_lay_body {
+    padding: 0;
+    margin: 0;
+}
+.final_lay_Lside {
+    background-color: blue;
+    width: 32%;
+    height: 200px;
+    float: left;
+}
+.final_lay_st {
+    background-color: green;
+    width: 36%;
+    height: 200px;
+    float: left;
+}
+.final_lay_Rside {
+    background-color: indigo;
+    width: 32%;
+    height: 200px;
+    float: left;
+}
+
