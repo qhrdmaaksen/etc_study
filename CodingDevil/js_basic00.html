@@ -32,6 +32,55 @@
         let hello = "hello";
         let y = hello/2;
         console.log(y);//NaN (not a number)출력
+
+        //참 거짓 boolean
+        let name_bool = "minwoo";
+        let age_bool = 35;
+        console.log(name_bool==`minwoo`);
+        console.log(age_bool<40);
+
+        //null , undefine
+        let age_unde ;
+        console.log(age_unde);
+        let name_null = null;
+        console.log(name_null);
+
+        //typeof 연산자
+        //내가 만든 코드라면 알아보기 쉽겠지만 다른 개발자가 작성한 코드 변수타입을 알아야하거나
+        //api 통신등을 통해 받아온 데이터를 타입에따라 다른방식으로 처리해야할때 많이사용함
+        console.log(typeof 3);
+        console.log(typeof name);
+        console.log(typeof true);
+        console.log(typeof "xxx");
+        console.log(typeof null);
+        console.log(typeof undefined);
+
+        //문자열 짜집기
+        const appli_im = "나는 ";
+        const aplli_im2 = " 입니다.";
+        const aplli_age = 35;
+        console.log(appli_im + name + aplli_im2);
+        console.log(appli_im + aplli_age + " 세 " + aplli_im2);
+
+        //대화 상자 응용
+        //alert 알려줌 , prompt 입력받음 , confirm 확인받음
+        let alert_greetings = "HelloWorld";
+        //alert(`alert_greetings`);
+        //let prom_name = prompt("이름을 입력해주세요.");
+        //let prom_date = prompt("예약일을 입력해주세요.","2022-1-");
+        //alert("안녕하세요,"+prom_name+"님 환영합니다.");
+        //벡틱 응용
+        //alert(`안녕하세요. ${prom_name} 님 환영합니다.`);
+        //alert(`${prom_date} 날짜로 예약이 완료되었습니다.`);
+
+        //alert 는 대화상자 명시 팝업
+        //prompt 는 입력받을 대화상자 팝업, 취소누르면 null 반환
+        //confirm 은 확인 취소 대화상자 true,false 반환
+
+        //단점으로는 
+        //1.기본 대화상자를 사용하면 스크립트가 일시 정지된다(대화상자 창이 없어져야 다른 활동 가능)
+        //2.스타일링을 설정할 수 없다. (그래서 html 과 css로 만드는 모달창을 많이 활용함)
+        //장점으로 기본 대화상자는 빠르고 간단하게 적용가능해 활용을 많이함
     </script>
 </head>
 <body>
