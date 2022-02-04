@@ -1,0 +1,28 @@
+{
+    "name": "etcstudy",
+    "version": "1.0.0",
+    "description": "��#\u0000 \u0000e\u0000t\u0000c\u0000_\u0000s\u0000t\u0000u\u0000d\u0000y\u0000\r\u0000 \u0000",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qhrdmaaksen/etc_study.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/qhrdmaaksen/etc_study/issues"
+    },
+    "homepage": "https://github.com/qhrdmaaksen/etc_study#readme",
+    "devDependencies": {
+        "webpack": "^5.68.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "html-webpack-plugin": "^5.5.0",
+        "jshint": "^2.13.4"
+    }
+}
