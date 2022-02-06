@@ -1,0 +1,8 @@
+index.html = webShop 의 홈 화면, 상품 카테고리 , 로고 , 로그인 등 포함
+register.html = 회원 가입 화면 , 다양한 html5 입력 양식 이용
+shopcart.html = 현재 쇼핑 카트에 들어있는 상품을 보여준다
+computer.html = 컴퓨터 상품을 보여주는 화면, index.html 화면 안에 포함
+clothing.html = 의류 상품을 보여주는 화면 , index.html 화면 안에 포함
+music.html = 음악 파일을 판매하는 화면, index.html 화면 안에 포함
+movie.html = 영화 파일을 판매하는 화면, index.html 화면 안에 포함
+mystyle.css = index.html 에 대한 스타일을 가지고있는 파일
