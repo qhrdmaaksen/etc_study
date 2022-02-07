@@ -83,7 +83,10 @@
         width: 120px;
     }
     
-    .register_field input {}
+    .register_field input {
+        display: inline-block;
+        width: 150px;
+    }
     
     .home_SC_field label {
         display: inline-block;
@@ -97,5 +100,10 @@
     
     .home_SC_login_reset {
         margin-left: 70px;
+        margin-top: 10px;
+    }
+    
+    .regi_sub_reset {
+        margin-left: 150px;
         margin-top: 10px;
     }
