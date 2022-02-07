@@ -72,3 +72,30 @@
     #main_st_info {
         display: inline-block;
     }
+    
+    .register_body {
+        height: 100%;
+        background-color: #F3F1E9;
+    }
+    
+    .register_field label {
+        display: inline-block;
+        width: 120px;
+    }
+    
+    .register_field input {}
+    
+    .home_SC_field label {
+        display: inline-block;
+        width: 80px;
+    }
+    
+    .home_regi_password {
+        margin-left: 80px;
+        margin-top: -15px;
+    }
+    
+    .home_SC_login_reset {
+        margin-left: 70px;
+        margin-top: 10px;
+    }

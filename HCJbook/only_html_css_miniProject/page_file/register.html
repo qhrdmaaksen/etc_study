@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+</head>
+
+<body class="register_body">
+    <div>
+        <!-- 회원 가입 창 -->
+        <form method="post" action="process.jsp">
+            <fieldset class="register_field">
+                <legend>회원 정보 입력</legend>
+                <label for="regi_name">아이디 : </label>
+                <input type="text" name="regi_name" id="regi_id">
+                <button>중복 검사</button>
+                <br>
+                <label for="regi_password">패스워드 :</label>
+                <input type="password" name="regi_password">
+                <br>
+                <label for="regi_password2">패스워드 확인 :</label>
+                <input type="password" name="regi_password2">
+                <br>
+                <label for="regi_name">이름 :</label>
+                <input type="text" name="regi_name">
+                <br>
+                <label for="regi_tel">휴대폰 번호 :</label>
+                <input type="tel" name="regi_tel">
+                <br>
+                <label for="regi_email">이메일 :</label>
+                <input type="email" name="regi_email">
+                <br>
+                <label for="d_of_b">생일 :</label>
+                <input type="date" name="d_of_b">
+                <br>
+                <label for="regi_url">홈페이지 :</label>
+                <input type="url" name="regi_url">
+                <br>
+                <input type="radio" name="regi_gender" value="Male">남성
+                <br>
+                <input type="radio" name="regi_gender" value="Female">여성
+                <br>
+            </fieldset>
+            <input type="submit" name="regi_submit" value="제출">
+            <input type="reset" name="regi_reset" value="초기화">
+        </form>
+    </div>
+</body>
+
+</html>
