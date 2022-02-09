@@ -157,6 +157,39 @@
     <br>
     메세지 : <input id="example_SC_msg" type="text" value="" style="width: 300px;">
   </div>
+  <hr>
+  <script>
+    let computer_result = 30 ; //컴퓨터 가지고있는 숫자
+    let opportunity = 0 ; //현재 게임 한 횟수
+    function game_check() {
+      let user_input = 0; //유저가 입력한 숫자
+      let game_msg =""; //힌트 메세지
+      user_input = parseInt(document.getElementById(`user_num`).value) ;
+      opportunity++;
+      if (user_input == computer_result) {
+        game_msg = `축하합니다.성공!`;
+      } else if(user_input < computer_result){
+        game_msg = `낮습니다!` ; 
+      } else {
+        game_msg = `높습니다!` ; 
+      }
+      document.getElementById(`opportunity_num`).value = opportunity;
+      document.getElementById(`game_hint`).value = game_msg;
+    }
+  </script>
+  <div style="display: inline-block;">
+    <form>
+      <fieldset>
+        <legend>숫자 맞추기 게임!</legend>
+          <p>이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 100사이에있어요.</p>
+          숫자 : <input id="user_num" type="number" value="" size="3">
+          <button type="button" onclick="game_check()"> 확인</button>
+          <br>
+          횟수 : <input id="opportunity_num" type="number" value="" size="5">
+          힌트 : <input id="game_hint" type="text" value="">
+      </fieldset>
+    </form>
+  </div>
 </body>
 
 </html>
