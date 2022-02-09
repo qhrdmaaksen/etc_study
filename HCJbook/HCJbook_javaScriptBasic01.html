@@ -159,12 +159,12 @@
   </div>
   <hr>
   <script>
-    let computer_result = 30 ; //컴퓨터 가지고있는 숫자
     let opportunity = 0 ; //현재 게임 한 횟수
+    let computer_result = Math.floor(Math.random()*10)+1 ; //컴퓨터 가지고있는 숫자
     function game_check() {
       let user_input = 0; //유저가 입력한 숫자
       let game_msg =""; //힌트 메세지
-      user_input = parseInt(document.getElementById(`user_num`).value) ;
+      user_input = document.getElementById(`user_num`).value ;
       opportunity++;
       if (user_input == computer_result) {
         game_msg = `축하합니다.성공!`;
@@ -181,12 +181,13 @@
     <form>
       <fieldset>
         <legend>숫자 맞추기 게임!</legend>
-          <p>이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 100사이에있어요.</p>
+          <p>이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. 숫자는 1부터 10사이에있어요.</p>
           숫자 : <input id="user_num" type="number" value="" size="3">
           <button type="button" onclick="game_check()"> 확인</button>
           <br>
           횟수 : <input id="opportunity_num" type="number" value="" size="5">
           힌트 : <input id="game_hint" type="text" value="">
+          <input type="button" value="게임 새로 시작" onClick="window.location.href=window.location.href">
       </fieldset>
     </form>
   </div>
