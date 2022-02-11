@@ -140,7 +140,7 @@
     document.write(`<hr>`)
     let numProperty = 123.4567
     document.write(`1) toExponential() - 지수형으로 반환 , 인수는 소수점 이하 숫자의 개수` + `<br>`)
-    document.write(numProperty.toExponential()+ `<br>`)
+    document.write(numProperty.toExponential() + `<br>`)
     document.write(numProperty.toExponential(1) + `<br>`)
     //2) toFixed() - 고정소수점 방식으로 반환, 인수는 소수점 이하 숫자의 개수
     let numProperty2 = 123.4567
@@ -212,6 +212,103 @@
     }
     setClock()
   </script>
+  <hr>
+  <!--String 객체-->
+  <!--String 객체 속성은 다양하기에 필요에따라 검색해서 응용하자-->
+  <!--1)length - 문자열의 길이-->
+  <!--응용 - 아이디 길이 체크-->
+  <script>
+    function idLengthCheck() {
+      let idValue = ``;
+      idValue = document.getElementById(`lengthCheck`).value
+      if (idValue.length < 6) {
+        confirm(`아이디의 길이는 최소 6글자 이상이어야합니다.`)
+      }
+    }
+  </script>
+  <div>
+    <form>
+      <p>1)length - 문자열의 길이</p>
+      아이디 : <input id="lengthCheck" type="text" size="10" value="">
+      <button type="button" onclick="idLengthCheck()">검사</button>
+    </form>
+  </div>
+  <!--2)indexOf() 메서드 - 문자열 안에서 주어진 텍스트가 처음 등장하는 위치를 반환-->
+  <hr>
+  <script>
+    let indexOfTest01 = `자바스크립트에 오신 것을 환영합니다.`;
+    let indexOfTest02 = indexOfTest01.indexOf(`환영`);
+    document.write(`2)indexOf() 메서드 - 문자열 안에서 주어진 텍스트가 처음 등장하는 위치를 반환` + `<br>`)
+    document.write(indexOfTest02);
+    </script>
+    <hr>
+    <!--3)match() 메서드 - 문자열 안에서 일치하는 콘텐츠를 탐색하는데 사용,정규식 사용이 가능하다.-->
+    <script>
+      let str = `like game, Like dog`
+      document.write(`3)match() 메서드 - 문자열 안에서 일치하는 콘텐츠를 탐색하는데 사용,정규식 사용이 가능하다.` + `<br>`)
+      document.write(str.match(/like/ig))// ig 의 i 는 insensitive, g는 globally 옵션 의미 
+    </script>
+    <hr>
+    <!--4)replace() 메서드 - 문자열 안에서 주어진 값을 다른 값으로 대체, 정규식 사용가능-->
+    <script>
+      let replaceTest01 = `우리 우미 안뇽 반가워 잘지내지 귀여운 강아지`;
+      let replaceTest02 = replaceTest01.replace(`안뇽 반가워`,`안녕 안녕`);
+      document.write(`4)replace() 메서드 - 문자열 안에서 주어진 값을 다른 값으로 대체, 정규식 사용가능` + `<br>`)
+      document.write(replaceTest02)
+    </script>
+    <hr>
+    <!--5)split() - 첫번째 인수를 분리자로 하여 주어진 문자열을 분리한 후에 각 항목을 가지고있는 배열을 반환,
+    문자열을 배열로 변환할 수 있다.-->
+    <script>
+      let splitTest01 = `One, Two, Three, Four, Five`;
+      let array = new Array();
+      array = splitTest01.split(`,`);
+      for (let i = 0; i < array.length; i++) {
+        document.write(i + ` - ` + array[i] + `<br>`);
+      }
+    </script>
+    <hr>
+    <!--6)HTML 랩퍼 메서드 - 종류가 많다. 필요에따라 검색해서 사용하자-->
+    <!--7)문자열 리터럴과 문자열 객체 - String 객체가 함수로 전달될 때 값만 전달된다.
+    함수 안에서 전달받은 문자열을 변경하더라도 원본은 변경되지 않는다.-->
+    <script>
+      let sLiteral = `문자열 리터럴`;
+      let sObject = new String(`문자열 객체`);
+      function change(strlit,strobj) {
+        strlit = `hello`;
+        strobj = `hello`;
+      }
+      change(sLiteral,sObject);
+      document.write(sLiteral + `<br>`);
+      document.write(sObject + `<br>`);
+    </script>
+    <!--8)concat() - 문자열에선 문자열 합치기 , 배열출력에 사용하면 배열합치기-->
+    <!--9)sort() - 정렬 메서드로 알파벳 순서로 정렬하기에 수치값으로 정렬하고자한다면 정렬기준 함수를 인수로 제공해야한다.-->
+    <hr>
+    <script>
+      let sortTest01 = [8,43,3,32,6,4,2,376];
+      sortTest01.sort(function(a,b){return a-b})
+      document.write(`9)sort() - 정렬 메서드로 알파벳 순서로 정렬하기에 수치값으로 정렬하고자한다면 정렬기준 함수를 인수로 제공해야한다.` + `<br>`);
+      document.write(sortTest01);
+    </script>
+    <!--10)Array.slice() 메서드 - 배열의 일부를 복사해 새로운 배열로 반환, 시작인덱스가없으면 0으로 가정, 종료인덱스가 없다면 배열의 끝까지 복사-->
+    <hr>
+    <script>
+      let sliceNumber = [0,1,2,3,4,5,6,7,8,9];
+      let sliceNumber2 = sliceNumber.slice(6);
+      document.write(`10)Array.slice() 메서드 - 배열의 일부를 복사해 새로운 배열로 반환, 시작인덱스가없으면 0으로 가정, 종료인덱스가 없다면 배열의 끝까지 복사` + `<br>`);
+      document.write(sliceNumber2 + `<br>`);
+    </script>
+    <hr>
+    <!--11)join() - 배열의 요소들을 하나의 문자열로 출력, 이 기능은 배열을 서버로 보낼때 유용하며 분리자가 각 요소를 분리하게된다.-->
+    <script>
+      let joinTest01 = [`김민우`,`김민석`,`김민지`];
+      let joinTest02 = joinTest01.join(` + `);
+      document.write(`11)join() - 배열의 요소들을 하나의 문자열로 출력, 이 기능은 배열을 서버로 보낼때 유용하며 분리자가 각 요소를 분리하게된다.` + `<br>`);
+      document.write(joinTest02)
+    </script>
+    <hr>
+    <!---->
 </body>
 
 </html>
