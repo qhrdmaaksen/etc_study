@@ -420,16 +420,19 @@
     console.log(fruits[isPick]);
   </script>
   <script>
-    let arrTest = [`hello`, 10, 32.6, true]
-    function find(name,string) {
-      console.log(arrTest);
-      console.log(arrTest[0]);
-      console.log(arrTest[1]);
-      console.log(arrTest[2]);
-      console.log(arrTest[3]);
-      console.log(`------------`);
+    let arrTest = ["hello", 10, 32.6, true]
+    function find(item,value) {
+      console.log(item.indexOf(value));
+      return item.indexOf(value);
     }
-    find(arrTest,`hello`)
+    document.write(find(arrTest,"hello"))
+    find(arrTest,"hello")
+    document.write(find(arrTest,10))
+    find(arrTest,10)
+    document.write(find(arrTest,32.6))
+    find(arrTest,32.6)
+    document.write(find(arrTest,true))
+    find(arrTest,true)
   </script>
   <script>
     function swear() {
