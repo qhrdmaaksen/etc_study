@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //DOM - document,object,model - HTML 문서를 객체로 표현한 것
+    //BOM - Brower,object,model - 웹 브라우저를 객체로 표현한 것
+    //NODE 의 최상위 NODE는 window
+    //노드의 종류
+    //DOCUMENT_NODE - DOM 트리의 루트 노드이며 HTML 문서를 나타낸다. window.document 가 바로 DOCUMENT_NODE 타입
+    //ELEMENT_NODE - HTML 요소를 나타내는 노드, <body>,<a> 등을 나타내는 노드
+    //ATTRIBUTE_NODE - 속성을 나타내는 노드 , class="myclass"와 같은 속성을 나타내는 노드
+    //TEXT_NODE - 요소 안에 들어있는 텍스트를 나타내는 노드
+
+    
+    //getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자
+    document.write(`안녕`)
+    function getIdContents() {
+      let resultInText = document.getElementById(`ex01GetElementById`)
+      document.write(resultInText.value)
+    }
+  </script>
+</head>
+<body>
+  <h5>getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자</h5>
+  <!--getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자-->
+  <div>
+    <form action="#">
+      <input type="text" id="ex01GetElementById">
+      <button type="button" onclick="getIdContents()">제출</button>
+    </form>
+  </div>
+  <script>
+    //getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 forms,name으로 읽어보자
+    function ex01GetElementById() {
+      let resultInText02 = document.userText.userText01.value;
+      let OutputText02 = document.getElementById(`userTextPharagraph`)
+      OutputText02.innerHTML = resultInText02
+      //document.write(resultInText02.value)
+    }
+  </script>
+  <hr>
+  <h5>getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 forms,name으로 읽어보자</h5>
+  <!--getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 forms,name으로 읽어보자-->
+  <div>
+    <form name="userText">
+      <p id="userTextPharagraph"></p>
+      <input type="text" name="userText01" value="">
+      <button type="button" onclick="ex01GetElementById()">제출</button>
+    </form>
+  </div>
+</body>
+</html>
