@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,20 @@
     //ATTRIBUTE_NODE - 속성을 나타내는 노드 , class="myclass"와 같은 속성을 나타내는 노드
     //TEXT_NODE - 요소 안에 들어있는 텍스트를 나타내는 노드
 
-    
+    //dom tree 순회 
+    //childNodes - 한 요소의 모든 자식 요소에 접근가능 , 배열 반환
+    //firstChild - childNodes 배열의 첫번째 자식노드 반환 
+    //lastChild - childNodes 배열의 마지막 자식노드 반환 
+    //parentNode - 현재 노드의 다음 형제 노드를 반환
+    //previousSibling - 현재 노드의 이전 형제 노드를 반환
+
+    //dom 노드 삭제와 추가
+    //첫번째 - 추가하기를 원하는 노드를 생성한다. ex_ let node = document.createTextNode("동적으로 추가된 노드")
+    //두번째 - 문서 내에서 추가할 위치를 찾는다. ex_ let parent = document.getElementById(`target`)
+    //세번째 - 새로운 노드를 기존의 노드에 연결한다. ex_ parent.appendChild(node)
+    // 만약 첫번째 자식 노드를 추가하고싶다면 ex_ insertBefore(node, document.getElementById(`target`).firstChild)
+
+
     //getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자
     document.write(`안녕`)
     function getIdContents() {
@@ -24,6 +38,7 @@
     }
   </script>
 </head>
+
 <body>
   <h5>getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자</h5>
   <!--getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 읽어보자-->
@@ -44,7 +59,6 @@
   </script>
   <hr>
   <h5>getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 forms,name으로 읽어보자</h5>
-  <!--getElementById() 메서드를 이용해 입력 양식안에서 입력 필드의 값을 forms,name으로 읽어보자-->
   <div>
     <form name="userText">
       <p id="userTextPharagraph"></p>
@@ -52,5 +66,116 @@
       <button type="button" onclick="ex01GetElementById()">제출</button>
     </form>
   </div>
+  <hr>
+  <script>
+    //태그 이름으로 HTML 요소 찾기
+    // let tagElement = document.getElementsByTagName(`ul`)[0]//문서 내의 첫번째 ul요소
+    // let allItem = tagElement.getElementsByTagName(`li`) //ul 태그의 li
+    // for (let i = 0 ; i < allItem.length; i++) {
+    //   document.write(allItem[i].firstChild.data)
+    //}
+  </script>
+  <div>
+    <ul>
+      <li>listItem01</li>
+      <li>listItem02</li>
+      <li>listItem03</li>
+      <li>listItem04</li>
+      <li>listItem05</li>
+      <li>listItem06</li>
+    </ul>
+  </div>
+  <hr>
+  <script>
+    //HTML 변경하기 - 요소의 내용 변경하기
+    function contentsOutput() {
+      confirm(document.getElementById(`htmlChange`).innerHTML)
+    }
+    function contentsChange() {
+      let DivContents = `변경되었습니다`
+      document.getElementById(`htmlChange`).innerHTML = DivContents
+    }
+  </script>
+  <div id="htmlChange">
+    여기가 div로 선언되었습니다.
+  </div>
+  <br>
+  <a href="#" onclick="contentsOutput()">div 요소 내용 출력하기</a>
+  <br>
+  <a href="#" onclick="contentsChange()">div 요소 내용 변경하기</a>
+  <hr>
+  <script>
+    //요소의 속성 변경하기
+    function imgChange() {
+      document.getElementById(`blackHoleImge`).src = `../image/thumnails/spaceView.png`
+    }
+    </script>
+  <div>
+    <img src="../image/thumnails/blackHole.png" width="300" height="200" id="blackHoleImge">
+    <button type="button" onclick="imgChange()">이미지 변경</button>
+  </div>
+  <hr>
+  <script>
+    //요소의 스타일 변경하기
+    function writingChange() {
+      document.getElementById(`writingColor`).style.color = `red`
+    }
+  </script>
+  <div>
+    <p id="writingColor">이곳의 글씨 색이 변경됩니다.</p>
+    <button type="button" onclick="writingChange()">버튼을 누르면 색 변경</button>
+  </div>
+  <hr>
+  <script>
+    //버튼을 누르면 요소를 화면에서 사라지게하는 프로그램을 만들어보자
+    function writingHide() {
+      document.getElementById(`writingContents`).style.visibility = `hidden`
+    }
+    function writingOut() {
+      document.getElementById(`writingContents`).style.visibility = `visible`
+    }
+  </script>
+  <div>
+    <h3 id="writingContents">이 글자는 사라지기도 다시 새겨지기도 합니다.</h3>
+    <br>
+    <button type="button" onclick="writingHide()">글씨 숨김</button>
+    <button type="button" onclick="writingOut()">글씨 새김</button>
+  </div>
+  <hr>
+  <script>
+    //dom 노드 삭제와 추가
+    //첫번째 - 추가하기를 원하는 노드를 생성한다. ex_ let node = document.createTextNode("동적으로 추가된 노드")
+    //두번째 - 문서 내에서 추가할 위치를 찾는다. ex_ let parent = document.getElementById(`target`)
+    //세번째 - 새로운 노드를 기존의 노드에 연결한다. ex_ parent.appendChild(node)
+    // 만약 첫번째 자식 노드를 추가하고싶다면 ex_ insertBefore(node, document.getElementById(`target`).firstChild)
+    function addtext() {
+      let nodeCreate = document.createTextNode(` 이 글은 동적으로 추가된 내용입니다`)
+      let parentNode = document.getElementById(`targetNode`)
+      parentNode.appendChild(nodeCreate)
+    }
+  </script>
+  <div>
+    <p>dom 노드 삭제와 추가</p>
+    <br>
+    <p id="targetNode" onclick="addtext()">여기를 클릭하면 내용 추가</p>
+  </div>
+  <hr>
+  <!--기존의 HTML 요소 삭제-->
+  <script>
+    //DOM 의 구조상 HTML 요소를 삭제하려면 부모 노드를 알아야한다. 부모 노드도 ID를 알면 찾을 수 있다.
+    function removeNode() {
+      let parentRemove = document.getElementById(`parentP`)
+      let childRemove = document.getElementById(`firstP`)
+      parentRemove.removeChild(childRemove)
+    }
+  </script>
+  <div id="parentP">
+    <p id="firstP">첫 번째 단락</p>
+    <br>
+    <p id="secondP">두 번째 단락</p>
+    <br>
+    <button type="button" onclick="removeNode()">누르면 HTML 요소 삭제됩니다.</button>
+  </div>
 </body>
+
 </html>
