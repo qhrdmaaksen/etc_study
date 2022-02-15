@@ -109,7 +109,7 @@
     function imgChange() {
       document.getElementById(`blackHoleImge`).src = `../image/thumnails/spaceView.png`
     }
-    </script>
+  </script>
   <div>
     <img src="../image/thumnails/blackHole.png" width="300" height="200" id="blackHoleImge">
     <button type="button" onclick="imgChange()">이미지 변경</button>
@@ -176,6 +176,127 @@
     <br>
     <button type="button" onclick="removeNode()">누르면 HTML 요소 삭제됩니다.</button>
   </div>
+  <hr>
+  <script>
+    //Window 객체 - Bom 에서 최상위 객체로서 웹 브라우저 윈도우를 나타냄,
+    //모든 전역 js 객체,함수,변수는 자동적으로 window 객체의 멤버가됨 ex_ alert(),prompt() 등등
+    //window 객체의 속성과 메서드 살펴보자
+    //open() - window.open(URL, name, specs, replace)
+    //URL은 오픈할 페이지의 URL
+    //name은 타겟을 지정하거나 윈도우의 이름 ex_ _blank, _parent, _self , _top , name
+    //specs은 여러가지 속성 - height=pixels,weight=pixels,left=pixels,top=pixels,menubar=yes|no|||o,resizable=yes|no|||o,scrollbars=yes|no|||o,titlebar=yes|no|||o
+    //replace는 히스토리 리스트에서 새로운 엔트리인지 아니면 현재 엔트리를 대체하는지 여부 - true-replace,false-create
+    function openGoogle() {
+      window.open(`http://www.google.com`, `_blank`, `width=300px`, `height=300`, true)
+    }
+  </script>
+  <div>
+    <p>새로운 윈도우 오픈</p>
+    <button type="button" onclick="openGoogle()">구글 창 열기</button>
+  </div>
+  <hr>
+  <script>
+    //setTimeout() - 일정한 시간이 지난 후에 인수로 전달된 함수를 딱! 한번만 호출한다. 시간의 단위는 밀리초
+    //- setTimeOut(code, millisec) - code -호출되는 함수의 이름,호출되는 함수를 code에서 직접 정의할 수 있다. millisec - 함수를 호출하기전에 흘러야하는 시간
+    function clickAfter() {
+      setTimeout(function () {
+        alert("setTimeout()를 사용하여 표시됐습니다.")
+      }, 3000)
+    }
+  </script>
+  <div>
+    <p>버튼을 누르면 3초 후 경고박스가 화면에 표시됨</p>
+    <button type="button" onclick="clickAfter()">눌러보세요</button>
+  </div>
+  <hr>
+  <script>
+    //setInterval() - 일정한 시간마다 주기적으로 함수를 호출한다. 이 함수는 반드시 개발자가 종료시켜야한다.시간의 단위는 밀리초
+    //- 주기적인 호출을 종료하려면 clearInterval() 호출
+    let id;
+    function changeColor() {
+      id = setInterval(flashText, 1000)//정지시키려면 반환값을 저장한다.setInterval(함수이름),밀리초)
+    }
+    function flashText() {
+      let blink = document.getElementById(`targetWriting`)
+      blink.style.color = (blink.style.color == `red`) ? `blue` : `red`
+      blink.style.backgroundColor = (blink.style.backgroundColor == `green`) ? `yellow` : `green`
+    }
+    function stopTextColor() {
+      clearInterval(id) //반환값을 이용하여 주기적 호출을 중지
+    }
+  </script>
+  <div id="blinkDiv">
+    <p>글씨가 깜빡이는 프로그램</p>
+    <p id="targetWriting">여기는 테스트용 글씨입니다.</p>
+    <button type="button" onclick="stopTextColor()">중지</button>
+  </div>
+  <script>
+    changeColor(`blinkDiv`)//바디에 onload 이벤트를 넣지않고 이렇게 쓸수 있다.
+  </script>
+  <hr>
+  <script>
+    //moveTo() - 절대적인 위치로 이동
+    let win
+    function openWindow() {
+      win = window.open(` `, ` `, `width=400,height=400`)
+      win.document.write(`<p>윈도우 새창입니다. 현재 상품을 할인중입니다.</p>`)
+      win.moveTo(-900, 300)//x,y 축
+    }
+    //moveBy() - 상대적인 위치로 이동
+    function moveWindow() {
+      win.moveBy(10, 10)//윈도우창 이동
+      win.focus()//특정 윈도우로 키보드 포커스를 이동시킴
+      //win.blur()//윈도우창 최소화
+    }
+    //윈도우의 크기를 변경하려면 resizeTo(),resizeBy()
+    //윈도우 스크롤 위치를 이동시킬때 scrolTo() , scrolBy()를 사용
+  </script>
+  <div>
+    <p>윈도우창 생성 및 해당창 이동or최소화</p>
+    <input type="button" value="윈도우 생성" onclick="openWindow()">
+    <br>
+    <input type="button" value="윈도우 이동" onclick="moveWindow()">
+  </div>
+  <hr>
+  <script>
+    //screen 객체 - 다양한 속성을 가짐 검색해서 사용하자
+    //availHeight,availWidth 속성은 js를 이용해 윈도우의 태스크 바를 가리지 않으면서 최대 크기로 윈도우를 오픈할 때 사용
+    function maxOpen(url, winattributes) {
+      let maxWindow = window.open(url, "", winattributes)
+      maxWindow.moveTo(-900, 300);
+      maxWindow.resizeTo(screen.availWidth, screen.availHeight)
+    }
+  </script>
+  <div>
+    <p>사이즈 조정을 통해 전체화면으로 정의한 url 이동</p>
+    <a href="#" onclick="maxOpen(`http://google.com`,`resize=1,scollbars=1,status=1`); return false">전체 화면 보기</a>
+  </div>
+  <hr>
+  <script>
+    //lovation 객체 - 현재 url에 대한 정보를 가지고있다. window 객체의 일부로서 window.location 을 통하여 접근됨
+    //여러 속성과 메서드가 있으므로 사용할때 검색해서 참고하자
+    function replace() {
+      location.replace(`http://www.google.com`)//replace() - 현재 페이지를 정의한 url 로 대체
+    }
+  </script>
+  <div>
+    <p>현재 페이지를 정의한 url 로 대체하기</p>
+    <a href="#" onclick="replace()">이동하기</a>
+  </div>
+  <hr>
+  <div>
+    <p>//navigator 객체 - 브라우저에대한 정보를 가지고있다.</p>
+  </div>
+  <script>
+    //navigator 객체 - 브라우저에대한 정보를 가지고있다.
+    //메서드와 속성이 많으니 검색해서 사용하자
+    for (const key in navigator) {
+      let value = navigator[key]
+      document.write(key + " : " + value + "<br>")
+    }
+  </script>
+  <hr>
+  
 </body>
 
 </html>
