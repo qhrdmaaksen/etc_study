@@ -6,21 +6,116 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script>
+    //onload(),onunload() - 사용자가 웹 페이지에 진입 or 떠나면 이벤트 발생
+    //- 쿠키를 처리하는데도 사용될 수 있다. 
+  </script>>
 </head>
 
-<body id="EventBody">
+<body id="EventBody" onload="bodyChange(`lightgreen`)">
   <script>
     //이벤트 처리 - 웹 페이지에서 상호작용이 발생하면 이벤트가 일어난다.
     //ex_ HTML 요소를 클릭,특정요소위로 마우스를가져가면,브라우저에의해서 발생,웹페이지나 이미지의 로드가끝나는순간,사용자가 페이지를 스크롤하면 등등 이벤트발생하게 할수 있다.
     //마우스클릭,웹페이지로딩,호버링,HTML 입력양식에서 입력박스선택,키보드의 키를 누르는것 등
 
-    function bodyChange(color) {
-      document.getElementById(`EventBody`).style.backgroundColor = color 
+    function bodyChange(color) {//매개변수를 color 색상으로 넘어오기때문에 
+      document.getElementById(`EventBody`).style.backgroundColor = color //바로 색 적용이 가능하다.
     }
   </script>
   <div>
+    <p>사용자가 라디오 버튼 클릭 시 해당되는 색상으로 배경색상 변경</p>
     <input type="radio" name="colorContack" value="파랑색" onclick="bodyChange(`lightblue`)">파랑색
     <input type="radio" name="colorContack" value="녹색" onclick="bodyChange(`lightgreen`)">녹색
+  </div>
+  <hr>
+  <script>
+    //onchange() 이벤트 - 입력필드를 검증할 때 종종 사용됨
+    function fieldChange() {//input 태그 요소의 내용이 변경되면 호출됨, 키보드 포커스가 입력필드를 벗어나면 변경여부를 검사하여 호출한다.
+      let contents = document.getElementById(`inputField`)
+      contents.value = contents.value.toLowerCase()
+    }
+  </script>
+  <div>
+    입력필드 : <input type="text" id="inputField" onchange="fieldChange()">
+    <p>입력필드를 벗어나면 소문자로 변경됩니다.</p>
+  </div>
+  <hr>
+  <script>
+    //onmouseover() - HTML 요소 위에 마우스를 올리거나 요소를 떠날때 발생
+    function mouseOverP() {
+      let x
+      x = document.getElementById(`mouseOverPP`)
+      x.style.border = `1px solid red`
+      x.style.backgroundColor = `yellow`
+    }
+    function mouseOut(out) {
+      out.style.border = ``
+      out.style.backgroundColor = ``
+    }
+  </script>
+  <div>
+    <p>onmouseover() - HTML 요소 위에 마우스를 올릴때 발생</p>
+    <p>onmouseout() - HTML 요소 위에 마우스가 요소를 떠날때 발생</p>
+    <p id="mouseOverPP" onmouseover="mouseOverP()" onmouseout="mouseOut(this)">마우스를 이 요소 위에 이동해보자</p>
+  </div>
+  <hr>
+  <script>
+    //onmousedown() - 마우스 클릭될때 이벤트 발생
+    //onmouseup() - 마우스버튼이 떼어지는순간 이벤트 발생
+    //onclick() - 마우스 버튼이 클릭이 완료되면 이벤트 발생
+    function buttonColor(color) {
+      let buttonID = document.getElementById(`mouseEvent`)
+      buttonID.style.color = color
+    }
+  </script>
+  <div>
+    <p>//onmousedown() - 마우스 클릭될때 이벤트 발생
+      //onmouseup() - 마우스버튼이 떼어지는순간 이벤트 발생</p>
+    <button type="button" id="mouseEvent" onmousedown="buttonColor(`green`)" onmouseup="buttonColor(`red`)">버튼을
+      클릭해보세요!</button>
+  </div>
+  <script>
+    //계산기 만들어보기
+    let expresstion = "";
+    function add(someValue) {//버튼이 눌러지면 버튼위의 문자를 변수 expresstion 에 추가
+      expresstion = expresstion + someValue
+      document.getElementById(`useInput`).value = expresstion
+    }
+    function compute() {
+      //사용자가 엔터를 누르면 eval() 함수를 이용해 전체 수식을 계산
+      document.getElementById(`useInput`).value = eval(expresstion)
+    }
+    function resetDisplay() {
+      document.getElementById(`useInput`).value = (expresstion = `0`)
+    }
+  </script>
+  <hr>
+  <div>
+    <form>
+      <legend>계산기 만들어보기</legend>
+      display <input type="text" value="0" id="useInput">
+      <br>
+      <input type="button" value="     7     " onclick="add(`7`)">
+      <input type="button" value="     8     " onclick="add(`8`)">
+      <input type="button" value="     9     " onclick="add(`9`)">
+      <input type="button" value="     /     " onclick="add(`/`)">
+      <br>
+      <input type="button" value="     4     " onclick="add(`4`)">
+      <input type="button" value="     5     " onclick="add(`5`)">
+      <input type="button" value="     6     " onclick="add(`6`)">
+      <input type="button" value="     *     " onclick="add(`*`)">
+      <br>
+      <input type="button" value="     1     " onclick="add(`1`)">
+      <input type="button" value="     2     " onclick="add(`2`)">
+      <input type="button" value="     3     " onclick="add(`3`)">
+      <input type="button" value="     -     " onclick="add(`-`)">
+      <br>
+      <input type="button" value="     0     " onclick="add(`0`)">
+      <input type="button" value="     +     " onclick="add(`+`)">
+      <br>
+      <input type="button" value=" Clear  " onclick="resetDisplay()">
+      <input type="button" value=" Enter  " name="enter" onclick="compute()">
+    </form>
   </div>
 </body>
 
