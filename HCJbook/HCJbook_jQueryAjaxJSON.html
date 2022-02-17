@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../css/jquery_ajax_jsonEx.css">
 </head>
+
 <body style="background-color: lightgreen;">
   <script>
-    //$("#firstOut").html(`안녕,나는제이쿼리야`);
+    $(document).ready(function () {
+      $(`#hideWriting`).click(function () {
+        $(this).hide()
+      })
+    })
+    $(document).ready(function () {
+      $(`p`).show()
+    })
   </script>
   <div>
-    <p id="firstOut">안녕,</p>
     <p>제이쿼리는 Ajax호출이나 dom 조작도 훨씬 간단하게 할 수 있다.</p>
     <p>HTML 문서에서 특정 요소를 쉽게 찾을 수 있다.</p>
     <p>HTML 콘텐츠를 쉽게 변경할 수 있다.</p>
@@ -21,9 +30,121 @@
     <p>네트워크를 통해 새로운 컨텐츠를 쉽게 가져올 수 있다 ( Ajax,JSON</p>
     <p>브라우저의 종류나 브라우저의 버전을 따질 필요가 없다. 모든 차이점은 제이쿼리 안에서 해결한다.</p>
     <p>제이쿼리를 웹 페이지에서 사용하는 두가지 방법
+      <br>
       첫번째로 jQuery.com 에서 다운받아 사용하기
+      <br>
       두번째로 실행 시 구글이나 마이크로소프트에서 제이쿼리 파일을 포함하는 방법
     </p>
   </div>
+  <hr>
+  <div>
+    <h3 id="hideWriting">클릭하면 글씨가 사라집니다.</h3>
+  </div>
+  <hr>
+  <div>
+    <p>div태그로 사각형을 만들고 마우스 커서가 사각형 안으로 넘어오면 변수의 값을 증가시키는 시켜 화면에 출력하는 프로그램</p>
+    <div id="mouseExRactangl">
+      <p>마우스를 올려주세요</p>
+      <p id="Pvalue">0</p>
+    </div>
+  </div>
+  <script>
+    //마우스 이벤트 - 마우스가 요소안으로 진입하면 mouseenter 이벤트 발생 
+    //반대로 마우스 요소를 빠져나가면 mouseleave 이벤트 발생
+    //위에서 배웠던 mousedown은 마우스가 클릭되있는 순간 발생
+    //mouseup 은 마우스가 클릭되었다가 떼지는 순간 이벤트 발생
+    //mouseover는 마우스가 특정 요소 위에있을때 이벤트 발생
+    let i = 0;
+    $(`#mouseExRactangl`).mouseover(function () {//id 에서 마우스가 올라가면 동작
+      $(`p:first`, this).text(`mouseover`)//첫번째 p의 요소의 텍스트 변환
+      $(`p:last`, this).text(++i)//p의 마지막의 텍스트에 1씩 더한다
+    })
+
+  </script>
+  <hr>
+  <script>
+    //focus와 blur 이벤트 
+    $(document).ready(function (){
+      $(`#focusInputEx`).focus(function (){
+        $(this).css(`background-color`,`yellow`)
+      })
+      $(`#focusInputEx`).blur(function (){
+        $(this).css(`background-color`,`white`)
+      })
+    })
+  </script>
+  <div>
+    <p>입력 필드를 만들고 포커스를 얻으면 입력필드의 배경색을 노랑색으로 변경, 포커스를 잃으면 흰색으로 변경</p>
+    아이디 : <input type="text" id="focusInputEx">
+  </div>
+  <hr>
+  <p>이벤트 처리기 함수 안에서 사용 가능한 정보</p>
+  <p>pageX,pageY - 이벤트가 발생했을 당시의 마우스 위치 
+    <br>
+    type - 이벤트의 종류 ex_ `click`
+    <br>
+    which - 눌려진 마우스 버튼이나 키
+  </p>
+  <div id="log"></div>
+  <script>
+    $(document).mouseover(function(e){
+      $(`#log`).text(`e.pageX : ` + e.pageX + `, e.pageY : ` + e.pageY+ `, e.type : ` + e.type + `, e.which : ` + e.which)
+    })
+  </script>
+  <hr>
+  <script>
+    //jQuery 를 이용한 애니메이션 효과
+    $(document).ready(function (){
+      $(`#showButton`).click(function(){
+        //$(선택자).show(duration,complete)duration-slow,fast,밀리초단위 입력가능,complete-콜백함수로서 show()완료된 후 호출되는 메서드 지정
+        $(`#coffeeImg`).show(`slow`)
+      })
+    })
+  </script>
+  <div>
+    <img id="coffeeImg" src="../image/etc/coffee_painting.jpg" width="200" height="100" style="display: none;">
+    <button id="showButton" type="button">Show it</button>
+  </div>
+  <hr>
+  <script>
+    $(document).ready(function(){
+      $(`#showButton02`).click(function(){
+        $(`#coffeeImg02`).toggle(`fast`)
+      })
+    })
+  </script>
+  <div>
+    <p>toggle() - 요소가 감추어져 있으면 표시,표시되어있으면 감춤</p>
+    <img id="coffeeImg02" src="../image/etc/coffee_painting.jpg" width="200" height="100" style="display: none;">
+    <button id="showButton02" type="button">Show it</button>
+  </div>
+  <hr>
+  <script>
+    $(document).ready(function(){
+      $(`#imgButton03`).click(function(){
+        $(`#spaceImg`).animate({
+          left:`100px`,
+          width:`200px`,
+          height:`100px`,
+          opacity:`0.5`,
+        })
+      })
+    })
+  </script>
+  <div>
+    <p>animate() - 가장 일반적인 애니메이션을 작성할 때 사용하는 함수, 어디로나 이동이 가능하고 어떤 효과도 가능
+      <br>
+      css 속성을 변경해서 애니메이션을 만듦
+      <br>
+      $(selector).animate(properties, duration, easing,complete)
+      <br>
+      properties - 애니메이트될 css 속성, 목표값을 여기에 적음
+      <br>
+      duration - speed 는 slow , fast or 밀리초 단위 지정
+    </p>
+    <img id="spaceImg" src="../image/thumnails/spaceView.png" style="position: relative;" width="100" height="50">
+    <button type="button" id="imgButton03">animate()</button>
+  </div>
 </body>
+
 </html>
