@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax</title>
+  <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../css/jquery_ajax_jsonEx.css">
+</head>
+
+<body style="background-color: rgb(163, 204, 163);">
+  <div>
+    <h2>Ajax</h2>
+    <div>
+      <pre>
+      Ajax는 서버와 데이터를 교환하는 기술이며, 클라이언트가 서버와 적은 양의 데이터를 교환하며 비동기적으로 html 페이지를 업데이트할 수 있다. 
+      이것은 전체 페이지를 다시 적재하지 않고 웹 페이지의 일부를 업데이트 할 수 있다는 것을 의미하며 빠르고 동적인 대화형 웹 페이지를 만드는데 유용하다.
+    </pre>
+      <ul>
+        <legend><b>속성-설명</b></legend>
+        <li>onreadystatechange - readyState 상태가 변경될때마다 자동으로 호출되는 함수를 저장</li>
+        <li>readyState - XMLHttpRequest 의 4가지 상태를 저장, 0에서 4로 순차적으로 변화됨</li>
+        <div>
+          <ul>
+            <li>0 - 요청이 초기화되지 않았다.</li>
+            <li>1 - 서버 연결이 이루어졌다</li>
+            <li>2 - 요청이 수신되었다.</li>
+            <li>3 - 요청을 처리 중이다.</li>
+            <li>4 - 요청 처리가 종료되고 응답이 준비되었다</li>
+          </ul>
+        </div>
+        <li>status - 200 : ok , 404 : 페이지가 발견되지 않았다</li>
+      </ul>
+      <p>ex_ ReadySate 가 4이며 status 가 200이면 응답이 준비되었고 이상이 없다는 뜻</p>
+      <p>주의 해야할 점은 실제로 onreadystatechange 이벤트는 0~4까지 5번 발생한다는 점,
+        <br>
+        readyState 가 0에서 4까지 변경될때마다 한번씩 발생하는것이기에 반드시 readyState 의 값을 체크
+      </p>
+      <dl>
+        <dt><b>서버 응답</b></dt>
+        <dd>서버에서 응답을 얻으려면 XMLHttpRequest 객체의 responseText or responseXML 속성을 사용</dd>
+        <dd>responseText 는 응답이 텍스트 형식일 경우 사용, responseXML 은 응답이 XML일 경우에 사용</dd>
+      </dl>
+      <dl>
+        <dt>jQuery 를 이용해 Ajax 사용</dt>
+        <dd>Ajax 메서드를 사용하려면 원격 서버로부터 HTTP Get 이나 HTTP Post 를 사용해 텍스트 HTML,XML,JSON 을요청 할수있으며,이러한 외부데이터를 웹 페이지의 특정 요소로 로드
+          할수있다.</dd>
+      </dl>
+      <dl>
+        <dt>get()</dt>
+        <dd>HTTP GET or POST 요청 방법을 사용해 서버로부터 데이터를 요청할 수 있는 메서드이다.</dd>
+        <dd>get() 와 post() 는 선택자를 가지지않는다. 따라서 jquery.get() 으로 표기하거나 $.get() 으로 표기한다.</dd>
+        <dd>$.get() 메서드는 HTTP GET request 를 사용해 서버로부터 데이터를 요청한다.</dd>
+        <dd>문법 ex_ $.get(URL , callback) - URL은 서버로부터 로드를 원하는 URL 을 뜻하며, callback은 get()이 완료된 후에 호출되는 함수</dd>
+        <br>
+        <dt>test.jsp 페이지를 요청하고 받은 데이터를 &lt;body&gt;요소에 추가&lt;/body&gt;</dt>
+        <dd>$.get(`test.jsp`,<br>
+          function(data) {<br>
+          $(`body`).append(`name: ` + data.name) //kim <br>
+          .append(`age : ` + data.age) //33<br>
+          },`json`);
+        </dd>
+        <hr>
+        <dt>post()</dt>
+        <dd>$.post() - HTTP POST request 명령을 이용해서 서버로부터 데이터를 요청</dd>
+        <hr>
+        <dt>예제_ 요청과 함께 데이터를 보내기 위해 $.post() 메서드 사용</dt>
+        <dd><code>$(`button`).click(function(){<br>
+          $.post(`test.jsp`,<br>
+          {<br>
+            name:`kim`,
+          <br>
+            age:`33`,<br>
+          },<br>
+          function(data,status){<br>
+              alert(`데이터 : ` + data + `상태 : ` + status); <br>
+            });<br>
+          });<br>
+        </code></dd>
+        <hr>
+        <dt>load() - 강력한 Ajax 메서드, 서버로부터 데이터를 로드해서 선택된 요소에 반환된 데이터를 집어 넣음</dt>
+        <dd><code>ex_ $(selector).load(URL,data,callback)</code></dd>
+      </dl>
+      <script>
+        $(document).ready(function () {
+          $(`#getDataBT`).click(function () {
+            $(`#getTextEx`).load(`../HCJbook/testGetFile.txt`)
+          })
+        })
+      </script>
+      <div>
+          <div id="getTextEx" style="width: 300px; height: 60px; border: 1px solid black;"></div>
+          <button id="getDataBT" type="button">getData</button>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <dl>
+        <dt>JSON</dt>
+        <dd>텍스트-기반의 데이터 교환 형식이며 이 형식은 사람도 읽을 수 있으며 컴퓨터도 쉽게 분석할 수 있다.</dd>
+        <dd>자바슼크립트언어에서 유래하였기에 js에서 배열과 객체를 표현하는 양식에 토대를 두고있다.</dd>
+        <dd>파일 확장자는 .json</dd>
+      </dl>
+      <p>json 표현된 객체로 사람에대한 정보를 표현해보자</p>
+      <pre>{
+        "name" : "kimminwoo",
+        "age" : 35,
+        "address" : {
+          "nation" : "korea",
+          "city" : "seoul",
+          "postalcode" : "123-455",
+        },
+        "특기" : ["검술","게임"],
+        "핸드폰" : "010-1234-5566"
+      }
+      </pre>
+    </div>
+  </div>
+</body>
+
+</html>
