@@ -8,6 +8,11 @@
   <title>Ajax</title>
   <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="../css/jquery_ajax_jsonEx.css">
+  <style>
+    dt {
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body style="background-color: rgb(163, 204, 163);">
@@ -86,25 +91,51 @@
       <script>
         $(document).ready(function () {
           $(`#getDataBT`).click(function () {
-            $(`#getTextEx`).load(`../HCJbook/testGetFile.txt`)
+            $(`#getTextEx`).load("../HCJbook/testGetFile.txt")
           })
         })
+        //eval() 사용할때 아래와같이 사용, eval(여기에 직접적인 값?을 넣지말자)
+        var x = 5;
+        var str = "if (x == 5) {console.log('z is 42'); z = 42;} else z = 0; ";
+
+        console.log("z is ", eval(str));
       </script>
       <div>
-          <div id="getTextEx" style="width: 300px; height: 60px; border: 1px solid black;"></div>
-          <button id="getDataBT" type="button">getData</button>
+        <div id="getTextEx" style="width: 300px; height: 60px; border: 1px solid black;"></div>
+        <button id="getDataBT" type="button">getData</button>
       </div>
     </div>
     <hr>
     <div>
       <dl>
         <dt>JSON</dt>
-        <dd>텍스트-기반의 데이터 교환 형식이며 이 형식은 사람도 읽을 수 있으며 컴퓨터도 쉽게 분석할 수 있다.</dd>
-        <dd>자바슼크립트언어에서 유래하였기에 js에서 배열과 객체를 표현하는 양식에 토대를 두고있다.</dd>
-        <dd>파일 확장자는 .json</dd>
+        <dd>-텍스트-기반의 데이터 교환 형식이며 이 형식은 사람도 읽을 수 있으며 컴퓨터도 쉽게 분석할 수 있다.</dd>
+        <dd>-자바슼크립트언어에서 유래하였기에 js에서 배열과 객체를 표현하는 양식에 토대를 두고있다.</dd>
+        <dd>-파일 확장자는 .json</dd>
+        <dd>근본적으로 언어에 독립적이기때문에 어떤 언어에서도 읽고 쓰는데 문제가없기에 데이터 교환 언어로 적합하다</dd>
+        <dd>웹 서버와 웹 애플리케이션 사이에서 XML 의 대체 형식으로도 많이 사용되고있다.</dd>
+        <dd>js에서 eval()을 사용해서 쉽게 파싱할수있으며 배열도 사용할수있다.</dd>
+        <dt>JSON의 구문</dt>
+        <dd>-데이터는 이름/값 으로 쌍으로 기록된다. ex_ "name" : "kim",</dd>
+        <dd>-여러개의 이름/값 을 묶는방법으로 객체와 배열을 사용</dd>
+        <pre>
+          객체
+          -ex_ {
+                "name":"민우",
+                "age":"35",
+              }</pre>
+        <pre>
+          배열 
+          -ex_ [
+                  {"name":"min","age":"35"},
+                  {"name":"min1","age":"31"},
+                  {"name":"min2","age":"32"},
+                      ]
+        </pre>
       </dl>
       <p>json 표현된 객체로 사람에대한 정보를 표현해보자</p>
-      <pre>{
+      <pre>
+        {
         "name" : "kimminwoo",
         "age" : 35,
         "address" : {
@@ -116,6 +147,127 @@
         "핸드폰" : "010-1234-5566"
       }
       </pre>
+      <dl>
+        <dt>JSON의 처리</dt>
+        <dd>-일반적인 용도 중 하나로 웹 서버에서 JSON 데이터를 가져오는 것</dd>
+        <dd>애플리케이션은 JSON 데이터를 자바 객체로 변환하고 웹 페이지에 표현 할때는 자바 객체를 사용</dd>
+        <hr>
+        <dt>eval() 을 사용하는 처리 방법</dt>
+        <dd>-서버로부터 JSON 데이터가 문자열 형태로 도착했다고 가정</dd>
+        <dd>문자열에서 바로 데이터를 추출할수없기에 eval()함수에 넣어서 배열이나 객체로 변환</dd>
+      </dl>
+      <script>
+        $(document).ready(function () {
+          let SDarray = `[` +
+            `{"name" : "minwoo","age" : "35"},` +
+            `{"name" : "minseok","age" : "27"},` +
+            `{"name" : "minjee","age" : "33"},` +
+            `]`
+          //eval()함수는 js 컴파일러를 사용해 json텍스트를 구문 분석하고 js 객체를 생성하며,구문 오류를 방지하려면 텍스는 괄호 안에싸여져있어야한다.
+          let SD = eval("(" + SDarray + ")")
+          console.log(SD);
+          SD[1].name = `mins` //SD의 1번째 인덱스의 name을 mins로 변경
+          console.log(SD);
+          $(`#SDname`).html(SD[1].name)
+          //$(`#SDage`).html(SD[1].age)
+          document.getElementById(`SDage`).innerHTML = SD[1].age
+        })
+      </script>
+      <div>
+        <h3>학생 명단</h3>
+        <p style="background-color: yellow;">이름 :
+          <span id="SDname"></span>
+          나이 :
+          <span id="SDage"></span>
+        </p>
+      </div>
+      <hr>
+      <dl>
+        <dt>전용 JSON.parse()를 사용하는 처리 방법</dt>
+        <dd>-모든 자바스크립트 문장을 컴파일하고 실행 할수있기에 잠재적인 보안 문제를 일으킬수있다.</dd>
+        <dd>-안전한 방법은 전용 json 파서를 사용해 json 텍스트를 js 객체로 변환하는 것이다.</dd>
+        <dd>-json파서는 json텍스트만을 인식하고 따라서 다른문장은 컴파일하지않는다.</dd>
+        <dd>-일반적으로 eval()보다 json 전용 파서가 더 빠르다.</dd>
+        <dd>ex_ let students = JSON.parse(문자열로만들어진 객체또는 배열)</dd>
+      </dl>
+      <script>
+        console.log(`--------------`);
+        document.addEventListener("DOMContentLoaded", function () {//jquery사용하지않고 순수js로 표기한것
+          let SDarray02 = `[` +
+            `{"name":"minwoo","age":"35"},` +
+            `{"name":"minjee","age":"33"},` +
+            `{"name":"minseok", "age": "27"} ` +
+            `]`//json 전용 파서를 사용한다 보다 안전하게
+          let SD02 = JSON.parse(SDarray02)
+          SD02[1].name = `mJee`
+          console.log(SD02[1].name);
+          document.getElementById(`SDname02`).innerHTML = SD02[1].name
+          document.getElementById(`SDage02`).innerHTML = SD02[1].age
+        })
+      </script>
+      <div>
+        <h3>학생 명단</h3>
+        <p style="background-color: yellow;">
+          이름 :
+          <span id="SDname02"></span>
+          나이 :
+          <span id="SDage02"></span>
+        </p>
+      </div>
+    </div>
+    <hr>
+    <script>
+      function pHideEx(howTo) {
+        $(`#thisP`).css(`visibility`, howTo)
+      }
+    </script>
+    <div>
+      <p>jquery ex01</p>
+      <p id="thisP">이것은 p 요소입니다.</p>
+      <button type="button" onclick="pHideEx(`hidden`)">감추기</button>
+      <button type="button" onclick="pHideEx(`visible`)">보이기</button>
+    </div>
+    <hr>
+    <script>
+      $(document).ready(function () {
+        let userInputText = document.ex02Form.mirror
+        let pValue = document.getElementById(`mirror2`)
+        userInputText.onkeyup = function () {
+          let v = this.value
+          pValue.textContent = v
+        }
+      })
+    </script>
+    <div>
+      <p>jquery ex02 실시간 키 입력</p>
+      <form name="ex02Form">
+        <input type="text" name="mirror" value="">
+        <p id="mirror2"></p>
+      </form>
+    </div>
+    <div>
+      <hr>
+      <style>
+        #racMoveEx03 {
+          width: 200px;
+          height: 100px;
+          background-color: plum;
+        }
+      </style>
+      <script>
+        $(document).ready(function () {
+          $(`#leftBT`).click(function () {
+            $(`#racMoveEx03`).animate({ right: `100`, width: `400px` })
+          })
+          $(`#rightBT`).click(function () {
+            $(`#racMoveEx03`).animate({ left: `10px`, width: `200px` })
+          })
+        })
+      </script>
+      <p>animate() 함수 활용 ex03</p>
+      <button type="button" id="leftBT"> 왼쪽 </button>
+      <button type="button" id="rightBT"> 오른쪽 </button>
+      <div id="racMoveEx03"></div>
     </div>
   </div>
 </body>
