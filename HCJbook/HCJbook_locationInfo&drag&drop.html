@@ -1,12 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    dt {
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body>
-  
+
+<body style="background-color: rgb(163, 204, 163);">
+  <div>
+    <dl>
+      <dt>drag&drop</dt>
+      <dd>HTML5 에서는 JS를 이용해 드래그와 드롭 과정에서 발생하는 이벤트를 처리하게된다.</dd>
+      <dd>-제일먼저해야할 작업 - 드래그되는 요소의 속성 draggable 을 true 로 설정,false면 드래그할수없다.</dd>
+      <dd>--요소를 정의할때 draggable true 설정 ex_ <code>&lt;img id="# draggable="true"&gt;</code></dd>
+      <dt>dragstart 이벤트</dt>
+      <dd>-사용자가 드래그를 시작할때 발생, dataTransfer 객체에 setData() 호출을 통해 데이터를 설정해줘야한다.</dd>
+      <dd>--어떤 형식의 어떤 데이터가 이동되는지를 설정하는것임</dd>
+      <dd>---ex_ <code>function handleDragStart(e){ e.dataTransfer.setData("Text",e.target.id)}</code></dd>
+      <dd>----위의 ex_ 는 데이터 형식이 Text 이며 이동되는 데이터는 드래그되는 요소의 id 를 의미</dd>
+      <dt>drag 이벤트</dt>
+      <dd>드래그하는 도중 계속해서 발생하는 이벤트이며 사용자가 마우스 버튼을 누른상태에서 계속 이동시키면 드래그 소스 객체에서 drag 이벤트가 발생</dd>
+      <dt>dragenter 이벤트</dt>
+      <dd>마우스로 드래그하다가 새로운 요소안으로 들어가면 dragenter 이벤트가 발생함, 이 이벤트가 발생하면 새로운 요소가 타겟 요소인지를 검사해서 타겟 요소라면 drop 이벤트를 처리하는 콜백 함수를
+        설정할수있으며 미리 설정했다면 이 이벤트에서 따로 할 일은 없다. </dd>
+      <dt>dragleave 이벤트</dt>
+      <dd>마우스로 드래그하다가 요소를 빠져나가면 dragleave 이벤트가 발생</dd>
+      <dt>dragover 이벤트</dt>
+      <dd>드래그 동작 도중에 마우스가 다른 요소위에있다는 것을 의미, 이 이벤트는 마우스가 현재 놓여있는 요소에서 발생하며 만약 타겟 요소에서 dragover 이벤트가 발생했다면 드롭을 허용하는 처리를
+        해줘야한다. 디폴트로 요소위에서 다른 요소가 드롭될 수 없다. 따라서 드롭을 허용하려면 아래ex_ 코드로 디폴트 처리를 방지해야한다.(event.preventDefault()함수사용)</dd>
+      <dd>
+        <pre>
+        function allowDrop(e) {
+          e.preventDefault()
+        }
+      </pre>
+      </dd>
+      <dt>drop 이벤트</dt>
+      <dd>반드시 처리해줘야하는 이벤트이며 사용자가 마우스 버튼을 놓았을때 발생, dataTransfer 객체에서 getData() 메서드를 이용해 필요한 데이터를 꺼내면됨</dd>
+    </dl>
+    <div>
+      <hr>
+      <style>
+        #shoppingCart {
+          width: 450px;
+          height: 100px;
+          padding: 10px;
+          border: 1px dotted red;
+        }
+      </style>
+      <script>
+        function allowDrop(e) {//드롭 허용
+          e.preventDefault()
+        }
+        function handleDragStart(e) {
+          e.dataTransfer.effectAllowed = `move`
+          e.dataTransfer.setData("Text", e.target.id) //드래그에 id를 싣는다
+        }
+        function handleDrop(e) {
+          e.preventDefault()
+          let src = e.dataTransfer.getData("Text")
+          //e.target.appendChild(document.getElementById(`src`))//드래그에서 데이터를 꺼내 자식노드로 추가한다.
+          let s = document.createElement(`div`)//노드
+          s.innerHTML = document.getElementById(src).out
+          document.getElementById(`shoppingCart`).appendChild(s)
+        }
+      </script>
+      <h3>웹 페이지 위에 상품을 드래그해 쇼핑 카트에 넣을 수있도록 웹 페이지를 작성</h3>
+      <p>원하는 물건을 끌어서 옮기세요</p>
+      <div id="shoppingCart" ondrop="handleDrop(event)" ondragover="allowDrop(event)"></div>
+      <br>
+      <img id="americano" src="../image/etc/americano_painting.png" alt="아메리카노" draggable="true" width="150px"
+        height="100px" ondragstart="handleDragStart(event)">
+      <img id="cafelatte" src="../image/etc/cafelatte_painting.jpg" alt="카페라떼" draggable="true" width="150px"
+        height="100px" ondragstart="handleDragStart(event)">
+      <img id="capoochino" src="../image/etc/capoochino_painting.jpg" alt="카푸치노" draggable="true" width="150px"
+        height="100px" ondragstart="handleDragStart(event)">
+      <pre>
+        <code>
+          &lt;img id="americano" src="../image/etc/americano_painting.png" alt="아메리카노" draggable="true" width="150px"
+        height="100px" ondragstart="handleDragStart(event)"&gt;
+        </code>
+          위 코드 중, draggable 의 true 는 어떤 요소를 드래그가 가능하게 한다.
+          다음으로 요소가 드래그되었을때 어떤작업을 해야하는지 기술하며 요소가 드래그되면 ondragstart 이벤트가 발생하게되고 이 이벤트를 처리하는 함수를 작성 후 연결시키면 된다.
+          위의 예제에서 ondragstart 이벤트가 발생하면 handleDragStart(event) 함수를 호출하며 이 함수는 어떤 데이터가 드래그되는지 지정한다 dataTransfer.setData() 메서드는 드래그되는 데이터의 유형과 값을 설정한다.
+          <code>function handleDragStart(e) {
+            e.dataTransfer.effectAllowed = `move`
+            e.dataTransfer.setData("Text", e.target.id) //데이터 형식은 Text 이며 값은 드래그 소스의 id 이다. </code>
+            <hr>
+            ondragover 이벤트가 타겟 요소 위에서 발생하면 드롭하기 위해 사전 준비를 한다. 디폴트로는 하나의 요소가 다른 요소 위에서 드롭될 수 없기때문이다.
+            드롭을 허용하려면 event.preventDefault() 메서드를 호출하면된다. 
+            <code> function allowDrop(e) {//드롭 허용
+              e.preventDefault()
+            }</code>
+            <hr>
+            드래그된 데이터가 드롭되면 drop 이벤트가 발생하며 위의 예제에서 ondrop 속성은 함수 handleDrop(event)을 호출한다.
+            <code>
+              function handleDrop(e) {
+                e.preventDefault()
+                let src = e.dataTransfer.getData("Text")
+                //e.target.appendChild(document.getElementById(`src`))//드래그에서 데이터를 꺼내 자식노드로 추가한다.
+                let s = document.createElement(`div`)//노드
+                s.innerHTML = document.getElementById(src).out
+                document.getElementById(`shoppingCart`).appendChild(s)
+              }
+            </code>
+            위의 코드에서도 호출하는 데이터 브라우저의 디폴트 처리를 방지하기 위해 preventDefault() 를 호출한다. 
+            dataTransfer.getData("Text") 메서드로 드래그된 데이터를 얻으며 이메서드는 setData() 메서드에서 동일한 형식으로 설정된 모든 데이터를 반환한다. 
+            드래그된 데이터는 드래그된 요소의 id 이며 쇼핑 카트 요소에 드래그된 요소를 추가한다. 
+        </pre>
+    </div>
+    <div>
+      <dl>
+        <dt>HTML5 위치 정보</dt>
+        <dd></dd>
+      </dl>
+    </div>
+  </div>
 </body>
+
 </html>
