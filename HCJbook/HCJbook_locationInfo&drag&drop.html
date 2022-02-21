@@ -119,8 +119,51 @@
     <div>
       <dl>
         <dt>HTML5 위치 정보</dt>
-        <dd></dd>
+        <dd>위치 정보는 navigator 객체가 가지고있는 geolocation 객체를 통해 얻을 수 있으며 위치 정보를 가지고있는 변수는 let geolocation =
+          navigator.geolocation</dd>
+        <dd>- geolocation 객체는 아래와 같은 메서드를 가지고있음</dd>
+        <dd>-- getCurrentPosition() - 사용자의 현재 위치 정보를 반환</dd>
+        <dd>--- watchPosition() - 장치의 현재 위치대한 정보를 주기적으로 반환</dd>
+        <dd>---- clearWatch() - 현재 진행중인 watchPosition() 실행을 중지</dd>
+        <dd>Position 객체 - 많은 속성을 가지고있기에 검색해서 응용하자</dd>
       </dl>
+      <hr>
+      <script>
+      let myLocation = document.getElementById(`locationInfoMark`)
+      function getGeolocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showLocation)
+        }
+      }
+      function showLocation(Location) {
+          myLocation.outerHTML = "(위도 : " + location.coords.latitude + ", 경도 : " + location.coords.longitude + ")"
+        }
+      </script>
+      <p>사용자의 위치 정보 얻기</p>
+      <button type="button" onclick="getGeolocation()">위치 정보 얻기</button>
+      <p id="locationInfoMark"></p>
+    </div>
+    <div>
+      <hr>
+      <script>
+        let myLocation02 = document.getElementById(`getGeolocation02`)
+        function getGeolocation02() {
+          //위치 정보가 지원되는지를 검사, 지원된다면 getCurrentPosition() 메서드 실행
+          //위치 정보를 얻는데 성공하면 showLocation() 함수가 호출되며,인수로 좌표 객체를 가지고있는 position 객체가 반환됨
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showGeolocation)
+          }
+        }
+        //showGeolocation 함수는 position 객체에서 위도 및 경도를 추출해 화면에 표시함
+        function showGeolocation(position) {
+          let pos = position.coords.latitude + "," + position.coords.longitude
+          let url = "http://maps.googleapis.com/maps/api/staticmap?center="
+            + pos + "&zoom=14&size=500x300&sensor=false"
+            window.open(url)
+        }
+      </script>
+      <p>지도에 위치 표시하기</p>
+      <button type="button" onclick="getGeolocation02()">지도 보이기</button>
     </div>
   </div>
 </body>
