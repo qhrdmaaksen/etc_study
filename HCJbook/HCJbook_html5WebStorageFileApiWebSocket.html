@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #98c588;
+    }
+    dt {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <dl>
+      <dt>HTML5 웹 스토리지</dt>
+      <dd>HTML5는 클라이언트 컴퓨터에 데이터를 저장하는 메커니즘으로 웹 스토리지를 제공</dd>
+      <dd>쿠키보다 안전하며 속도도빠름,쿠키는 서버로 요청할때마다 매번 http요청 헤더에 붙여서 전송해야하기때문에 네트워크에 부담이된다.</dd>
+      <dd>웹사이트의 성능에 영향을 주지않으며 많은 양의 데이터를 저장할수있다.</dd>
+      <dd>웹스토리지안에서 데이터는 키/값의 쌍으로 저장되며 데이터는 웹 페이지만 엑세스할 수 있다.</dd>
+      <dt>localStorage , sessionStorage</dt>
+      <dd>웹 스토리지에는 데이터를 저장하기 위한 두종류의 객체가 있다.</dd>
+      <dt>localStorage</dt>
+      <dd>-만료 날짜가 없는 데이터를 저장, 데이터는 브라우저가 닫힐 때 삭제되지 않으며 1년동안이라도 사용가능하며 도메인이 다르면 서로의 로컬 스토리지에 접근 불가</dd>
+      <dd>-- 구글의 웹 페이지에서 네이버 웹페이지의 로컬 스토리지에 접근할 수 없다. but 같은 도메인은 로컬 스토리지를 공유한다.</dd>
+      <dt>sessionStorage</dt>
+      <dd>각 세선(하나의 윈도우)마다 데이터가 별도로 저장됨, 해당 세션이 종료되면 데이터가 사라짐</dd>
+      <dd>- 같은 도메인에 연결했어도 브라우저 윈도우가 다르다면 서로 다른 영역을 사용함 , 새로 윈도우를 열어 동일한 도메인에 접속하더라도 세션 스토리지는 서로 다름</dd>
+      <p>로컬 스토리지와 세션스토리지는 저장 공간만 차이가있을뿐 다른것은 동일함</p>
+    </dl>
+    <div>
+      <p>사용자가 페이지를 방문한 횟수를 로컬 스토리지에 저장해보기</p>
+      <p></p>
+    </div>
+  </div>
+</body>
+</html>
