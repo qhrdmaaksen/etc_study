@@ -2,5 +2,9 @@ h4 {
     color: red;
 }
 p {
-    color: powderblue;
+    color: rgb(34, 72, 77);
+}
+
+#clock {
+  font: 2em sans-serif;
 }
