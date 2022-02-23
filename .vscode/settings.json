@@ -2,5 +2,9 @@
   "editor.wordWrap": "on",
   "cSpell.words": [
     "agrs"
+  ],
+  "java.project.sourcePaths": [
+    "src/main/java/jspWebPrograming",
+    "src/main/java"
   ]
 }
