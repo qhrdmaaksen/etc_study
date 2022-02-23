@@ -322,8 +322,8 @@
       <hr>
       <script>
         window.onload = function () {
-          if (typeof (EventSource) !== "undefined") {
-            let source = new EventSource("testServer.jsp")
+          if (typeof (EventSource) !== "undefined") {//서버 전송 이벤트를 지원하는지 확인, 서버전송이벤트는 EventSource객체를 통해 구현되기때문에
+            let source = new EventSource("testServer.jsp")//인수로 주어진 URL 에 접속해 데이터를 주기적으로 받음
             source.onmessage = function (event) {
               document.getElementById(`resultServer`).innerHTML += event.data + "<br>"
             }
