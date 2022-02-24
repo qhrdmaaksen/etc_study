@@ -1,10 +1,102 @@
-h4 {
-    color: red;
+body {
+  background-color: rgb(214, 230, 240);
 }
+h4 {
+  color: red;
+}
+
 p {
-    color: rgb(34, 72, 77);
+  color: rgb(34, 72, 77);
 }
 
 #clock {
   font: 2em sans-serif;
+}
+
+#page {
+  padding: 5px;
+  width: 960px;
+  margin: 20px auto;
+}
+
+#header {
+  height: 50px;
+}
+
+#main {
+  width: 600px;
+  float: left;
+}
+
+#sidebar {
+  width: 300px;
+  float: right;
+}
+
+#footer {
+  clear: both;
+}
+
+@media screen and (max-width: 980px) {
+  #page {
+    width: 94%;
+  }
+
+  #main {
+    width: 65%;
+  }
+
+  #sidebar {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /*media 타입이 screen이며 최대너비가 980픽셀이라면*/
+  #main {
+    width: auto;
+    float: none;
+  }
+
+  #sidebar {
+    width: auto;
+    float: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #header {
+    height: auto;
+  }
+
+  #h2 {
+    font-size: 24px;
+  }
+
+  #sidebar {
+    display: none;
+  }
+}
+
+#header,
+#main,
+#sidebar,
+#footer {
+  border: solid 1px red;
+}
+
+#header {
+  background-color: yellow;
+}
+
+#sidebar {
+  background-color: aliceblue;
+}
+
+#main {
+  background-color: aqua;
+}
+
+#footer {
+  background-color: coral;
 }
