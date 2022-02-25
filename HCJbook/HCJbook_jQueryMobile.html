@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <style>
+    body {
+      background-color: rgb(214, 230, 240);
+    }
+  </style>
   <title>Document</title>
 </head>
+
 <body>
   <div>
     <h3>제이쿼리 모바일</h3>
@@ -21,6 +31,32 @@
       <li>- 모바일에 어울리는 인터페이스를 구현하고 있기때문에 네이티브 웹과 같은 느낌을 준다</li>
       <li>- 모바일 플랫폼의 특성을 파악해 처리하고있기때문에 개발자가 신경을 쓸 필요가 없다는 점이 중요하다</li>
     </ol>
+    <ol>
+      <legend>제이쿼리 모바일을 사용하는 애플리케이션의 기본 구조</legend>
+      <li>1개의 css 파일과 2개의 자바스크립트 라이브러리를 포함시키면 됨</li>
+    </ol>
+    <p>제이쿼리 모바일을 사용하려면 아래와 같이 추가해주면된다.</p>
+    <pre>
+      &lt;link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"&gt;
+      &lt;script src="http://code.jquery.com/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+      &lt;script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"&gt;&lt;/script&gt;
+    </pre>
+    <div>
+      <h3>제이쿼리 모바일 ex_01</h3>
+      <!--- data-role 속성으로 UI를 구성한다. - JQM에서는 기본적으로 div 태그에 data-role 속성이 아래와 같은 값을 가진 구조를 가진다. data-role="header" : 문서의 상단영역. 툴바형태로 제공되며 보통 h1 태그와 함께 쓰인다.-->
+      <div data-role="page">
+        <div data-role="header">
+          <h1>My Title</h1>
+        </div>
+        <div data-role="content">
+          <p>안녕하세요, 제이쿼리에 오신것을 환영합니다.</p>
+        </div>
+        <div data-role="footer">
+          <h4>Thank You!</h4>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
+
 </html>
