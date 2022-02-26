@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <link rel="stylesheet" href="../css/mystyle.css">
   <style>
     body {
       background-color: rgb(214, 230, 240);
@@ -17,44 +18,67 @@
 </head>
 
 <body>
-  <div>
-    <h3>제이쿼리 모바일</h3>
-    <ul>
-      <li>웹 앱은 앱처럼 보이는 웹 페이지이며 앱처럼 사용자와 상호작용하며 모바일 화면에 적절한 레이아웃을 사용하고 매번 전체 페이지를 다시 로드하지않고도 필요한 부분만을 로드한다.</li>
-      <li>제이쿼리 모바일은 모바일 프레임워크중에 하나임</li>
-      <li>제이쿼리 모바일은 터치-기반의 HTML5 UI 프레임워크</li>
-      <li>제이쿼리 모바일로 작성한 웹 앱은 모든 종류의 스마트폰,테블릿,데스크탑에서 소스 변경 없이도 동일한 모습으로 실행될 수 있음</li>
-    </ul>
-    <ol>
-      <legend>모바일 프레임워크를 사용하는 이유</legend>
-      <li>- 터치 기반의 사용자 인터페이스를 쉽고 빠르게 작성할 수 있다.</li>
-      <li>- 모바일에 어울리는 인터페이스를 구현하고 있기때문에 네이티브 웹과 같은 느낌을 준다</li>
-      <li>- 모바일 플랫폼의 특성을 파악해 처리하고있기때문에 개발자가 신경을 쓸 필요가 없다는 점이 중요하다</li>
-    </ol>
-    <ol>
-      <legend>제이쿼리 모바일을 사용하는 애플리케이션의 기본 구조</legend>
-      <li>1개의 css 파일과 2개의 자바스크립트 라이브러리를 포함시키면 됨</li>
-    </ol>
-    <p>제이쿼리 모바일을 사용하려면 아래와 같이 추가해주면된다.</p>
-    <pre>
+  <!--- data-role 속성으로 UI를 구성한다. - JQM에서는 기본적으로 div 태그에 data-role 속성이 아래와 같은 값을 가진 구조를 가진다. data-role="header" : 문서의 상단영역. 툴바형태로 제공되며 보통 h1 태그와 함께 쓰인다.-->
+  <div data-role="page">
+    <div data-role="header">
+      <h1>jQuery mobile Web</h1>
+    </div>
+    <div data-role="content">
+      <div>
+        <p>안녕하세요, 제이쿼리 기본 구조에 오신것을 환영합니다.</p>
+        <h3>제이쿼리 모바일</h3>
+        <ul>
+          <li>웹 앱은 앱처럼 보이는 웹 페이지이며 앱처럼 사용자와 상호작용하며 모바일 화면에 적절한 레이아웃을 사용하고 매번 전체 페이지를 다시 로드하지않고도 필요한 부분만을 로드한다.</li>
+          <li>제이쿼리 모바일은 모바일 프레임워크중에 하나임</li>
+          <li>제이쿼리 모바일은 터치-기반의 HTML5 UI 프레임워크</li>
+          <li>제이쿼리 모바일로 작성한 웹 앱은 모든 종류의 스마트폰,테블릿,데스크탑에서 소스 변경 없이도 동일한 모습으로 실행될 수 있음</li>
+        </ul>
+        <ol>
+          <legend>모바일 프레임워크를 사용하는 이유</legend>
+          <li>- 터치 기반의 사용자 인터페이스를 쉽고 빠르게 작성할 수 있다.</li>
+          <li>- 모바일에 어울리는 인터페이스를 구현하고 있기때문에 네이티브 웹과 같은 느낌을 준다</li>
+          <li>- 모바일 플랫폼의 특성을 파악해 처리하고있기때문에 개발자가 신경을 쓸 필요가 없다는 점이 중요하다</li>
+        </ol>
+        <ol>
+          <legend>제이쿼리 모바일을 사용하는 애플리케이션의 기본 구조</legend>
+          <li>1개의 css 파일과 2개의 자바스크립트 라이브러리를 포함시키면 됨</li>
+          <li>특징 - 기본적으로 div 요소를 만들고 data-role 속성으로 요소의 역할을 지정한다는 점</li>
+          <li>-- 다음 단계로 콘텐츠 컨테이너 안에 콘텐츠를 추가하는 것 ex_ div data-role="content"</li>
+          <li>어떤 표준 HTML 요소라도 추가할수있으며 헤딩,리스트,단락 등 어떤 요소라도 추가할수있다 .</li>
+          <li>개발자 자신만의 커스텀 스타일을 작성해 커스텀 레이아웃을 생성해도 됨</li>
+        </ol>
+        <p>제이쿼리 모바일을 사용하려면 아래와 같이 추가해주면된다.</p>
+        <pre>
       &lt;link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"&gt;
       &lt;script src="http://code.jquery.com/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
       &lt;script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"&gt;&lt;/script&gt;
     </pre>
-    <div>
-      <h3>제이쿼리 모바일 ex_01</h3>
-      <!--- data-role 속성으로 UI를 구성한다. - JQM에서는 기본적으로 div 태그에 data-role 속성이 아래와 같은 값을 가진 구조를 가진다. data-role="header" : 문서의 상단영역. 툴바형태로 제공되며 보통 h1 태그와 함께 쓰인다.-->
-      <div data-role="page">
-        <div data-role="header">
-          <h1>My Title</h1>
-        </div>
+      </div>
+      <div>
+        <dl>
+          <dt>리스트 뷰</dt>
+          <dd>제이쿼리 모바일은 여러가지 종류의 리스트 뷰를 제공하며 모바일 앱에서는 특히 중요하다.</dd>
+          <dd>리스트에서 data-role="listview" 를 추가해주면되며, data0inset="true" 속성은 리스트 뷰를 inset 모듈처럼 보이게한다</dd>
+          <dd>data-filter="true" 는 동적 검색 필터를 추가해준다</dd>
+        </dl>
         <div data-role="content">
-          <p>안녕하세요, 제이쿼리에 오신것을 환영합니다.</p>
-        </div>
-        <div data-role="footer">
-          <h4>Thank You!</h4>
+          <ul data-role="listview" data-inset="true" data-filter="true">
+            <li><a href="">배틀그라운드</a></li>
+            <li><a href="">서든어택</a></li>
+            <li><a href="">리니지</a></li>
+            <li><a href="">오딘</a></li>
+          </ul>
         </div>
       </div>
+      <div>
+        <dl>
+          <dt>슬라이더</dt>
+          <dd></dd>
+        </dl>
+      </div>
+    </div>
+    <div data-role="footer">
+      <h4>Thank You!</h4>
     </div>
   </div>
 </body>
