@@ -1,0 +1,19 @@
+#headerUl {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+#headerUl li {
+  float: left;
+}
+#headerUl a {
+  display: inline-block;
+  width: 10%;
+}
+#headerH1 {
+  font-size: 20px;
+}
+#navbar {
+  display: inline-block;
+  height: 450px;
+}

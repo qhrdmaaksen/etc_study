@@ -5,6 +5,13 @@ h4 {
   color: red;
 }
 
+legend  {
+  font-weight: bold;
+}
+
+dt {
+  font-weight: bold;
+}
 p {
   color: rgb(34, 72, 77);
 }
