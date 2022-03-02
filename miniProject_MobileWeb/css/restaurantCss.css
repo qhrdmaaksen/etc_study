@@ -18,3 +18,15 @@
 .choiceList {
   margin-top: 150px;
 }
+
+#restauInfo {
+  text-align: center;
+}
+
+#restauInfo ul {
+  list-style: none;
+}
+
+#restauInfo2 {
+  text-align: center;
+}
