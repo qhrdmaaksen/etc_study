@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--제이쿼리 모바일을 사용하기 위한 링크들-->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <!--외부 css 파일 위치-->
+  <link rel="stylesheet" href="../css/restaurantCss.css">
+  <!--외부 js 파일 위치-->
+  <script src="../js/restaurantJs.js"></script>
+  <title>지역내의 마켓 선택</title>
+</head>
+
+<body>
+  <div data-role="page" data-add-back-btn="true">
+    <div data-role="header">
+      <h1>배달 음식점 선택 페이지</h1>
+    </div>
+    <!--네비게이션 메뉴 바-->
+    <div id="navbar" data-role="navbar">
+      <ul id="headerUl">
+        <li>
+          <a href="index.html" data-icon="home" data-theme="b">Home</a>
+        </li>
+        <li>
+          <a href="#" data-theme="b">Menu</a>
+        </li>
+        <li>
+          <a href="#" data-theme="b">Picture</a>
+        </li>
+        <li>
+          <a href="#" data-theme="b">Review</a>
+        </li>
+        <li>
+          <a href="#" data-theme="b">Map</a>
+        </li>
+      </ul>
+    </div>
+    <div data-role="content">
+      <div class="chooseList">
+        <h3>배달 시킬 가게를 선택해주세요</h3>
+        <ul data-role="listview" data-filter="true" data-inset="true">
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/목살양념구이.jpg" alt="양념구이집">
+              <h4>흥행성공 양념구이 고기집</h4>
+              <p class="classement four">3 stars</p>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/떡볶끼.JPG" alt="맛좋은분식집">
+              <h4>맛좋은 분식집</h4>
+              <!--별 표시는 별 정보를 이용해 스타일 파일에서 만들자-->
+              <p class="classement four">4 stars</p>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/현미.jpg" alt="풍미산맥쌀집">
+              <h4>풍미산맥 쌀집</h4>
+              <p class="classement two">2 stars</p>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/통영프리미엄 굴.jpg" alt="바다향해산물">
+              <h4>바다향 해산물</h4>
+              <p class="classement five">5 stars</p>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/컷팅메론.jpg" alt="달달한과일집">
+              <h4>달달한 과일집</h4>
+              <p class="classement one">1 stars</p>
+            </a>
+          </li>
+          <li>
+            <a href="restaurant.html" data-transition="slidedown">
+              <img src="../img/iloveimg-resized/체다치즈서울우유.jpg"" alt="간식세상">
+              <h4>간식세상</h4>
+              <p class="classement four">4 stars</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

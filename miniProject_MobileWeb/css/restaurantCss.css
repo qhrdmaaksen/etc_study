@@ -4,6 +4,7 @@
 }
 #headerUl li {
   float: left;
+  line-height: 8;
 }
 #headerUl a {
   display: inline-block;
