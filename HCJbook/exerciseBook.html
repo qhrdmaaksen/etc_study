@@ -15,18 +15,31 @@
       font-weight: bold;
     }
   </style>
-  <script>
-    //1부터 10까지 더해라
-    let result = 0 ;
-    for (let i = 0; i <= 10; i++) {
-      result += i ;
-      console.log(result);
-    }
-  </script>
 </head>
+<script>
+  console.log('안녕')
+  const view = () => {
+    let n = document.getElementById('inputValue').value
+    let n2 =  1+n/2
+    if (n2 >= 50){
+        document.getElementById('inputValue').innerHTML = '유의미'
+        console.log('유의미')
+      } else {
+        document.getElementById('inputValue').innerHTML = '무의미'
+        console.log('무의미')
+    }
+  }
+</script>
 
 <body>
-
+  <div>
+    <form>
+      <label for="inputValue"></label>
+      <input id="inputValue" type="number" />
+      <div id="result"></div>
+      <button onclick="view()">입력</button>
+    </form>
+  </div>
 </body>
 
 </html>
