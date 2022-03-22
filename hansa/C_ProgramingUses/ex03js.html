@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let stTotalJs = document.getElementById('stTotal').value
+    let st01Js = document.getElementById('st01').value
+    let st02Js = document.getElementById('st02').value
+    let st03Js = document.getElementById('st03').value
+    let stCountJs
+    inputComplete = () => {
+      for (let int = 0; int < stTotalJs; int++) {
+        if (st01Js >= 90 || st02Js >= 90 || st03Js >= 90) {
+          document.getElementById('stCount').innerHTML = stCountJs
+          if (stTotalJs < 0 || st01Js < 0 || st02Js < 0 || st03Js < 0) {
+            document.getElementById('stCount').innerHTML = '양수만 입력해주세요'
+          } else if (stTotalJs >= 4 || st01Js > 100 || st02Js > 100 || st03Js > 100) {
+            document.getElementById('stCount').innerHTML = '학생수는 3명을 넘을 수 없으며, 또는 점수가 100점을 넘을 수 없습니다.'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <form action="" onsubmit="inputComplete">
+      <input id="stTotal" type="number" value="">학생 수 입력
+      <br>
+      <input id="st01" type="number" value="">첫번째 학생 점수
+      <br>
+      <input id="st02" type="number" value="">두번째 학생 점수
+      <br>
+      <input id="st03" type="number" value="">세번째 학생 점수
+      <br>
+      <button>입력</button>
+    </form>
+    <p>90점 이상의 점수를 획득한 학생의 수 : </p>
+    <p id="stCount"></p>
+  </div>
+</body>
+
+</html>
