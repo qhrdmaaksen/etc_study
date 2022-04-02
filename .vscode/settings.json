@@ -10,6 +10,8 @@
   "liveServer.settings.port": 5501,
   "files.associations": {
     "*.jsx": "javascriptreact",
-    "vector": "cpp"
+    "vector": "cpp",
+    "array": "cpp",
+    "string": "cpp"
   }
 }

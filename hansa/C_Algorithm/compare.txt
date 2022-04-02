@@ -1,0 +1,28 @@
+#include <cstdio>
+#include <cstdlib>
+struct Node
+{
+    int data;
+    Node* link;
+};
+Node* AllocNode(int data)
+{
+    Node* n = new Node;
+    n->data = data;
+    n->link = NULL;
+    return n;
+}
+int main()
+{
+    Node* head = NULL;
+    head = AllocNode(10);
+    head->link = AllocNode(20);
+    head->link->link = AllocNode(30);
+    head->link->link->link = AllocNode(40);
+    head->link->link->link->link = AllocNode(50);
+
+    for (Node* p = head; p != NULL; p = p->link)
+        printf("%d\n", p->data);
+
+    system("pause");
+}
