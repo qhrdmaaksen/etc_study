@@ -1,0 +1,71 @@
+.container {
+	padding-top: 100px;
+	background: beige;
+	height: 100vh;
+	display: flex; /*플렉스박스 정의(왼쪽부터 오른쪽 정렬)*/
+}
+
+.item {
+	width: 40px;
+	height: 40px;
+	border: 1px solid black;
+}
+
+.item1 {
+	background: #ef9a9a;
+}
+
+.item2 {
+	background: #f48fb1;
+}
+
+.item3 {
+	background: #ce93d8;
+}
+
+.item4 {
+	background: #b39ddb;
+}
+
+.item5 {
+	background: #90caf9;
+}
+
+.item6 {
+	background: #a5d6a7;
+}
+
+.item7 {
+	background: darkkhaki;
+}
+
+.item8 {
+	background: yellow;
+}
+
+.item9 {
+	background: orange;
+}
+
+.item10 {
+	background: #cb94ff;
+}
+
+.item11 {
+	background: #aafff7;
+}
+
+.item12 {
+	background: #a0ff86;
+}
+
+.item13 {
+	background: #fff792;
+}
+
+.item14 {
+	background: #ffb99e;
+}
+.item15 {
+	background: #ffefd8;
+}
