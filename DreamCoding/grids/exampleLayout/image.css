@@ -1,0 +1,53 @@
+body {
+	padding: 5rem;
+	background-color: black;
+}
+
+.container {
+	display: grid;
+
+	/*전체 grid 의 3 분할*/
+	grid-template-columns: repeat(3, 1fr);
+
+	/*어디 셀까지 상관없이 높이는 150px 로 지정*/
+	grid-auto-rows: 150px;
+	grid-gap: 1rem;
+
+/*area 를 사용하면 레이블에 지정해주며 레이블에 맞게 나타게 만들 수 잇음*/
+	grid-template-areas:
+					'a a a'
+					'b c c'
+					'b d g'
+					'e f g'
+}
+
+/*image 클래스를 이용해 이미지가 부모 컨테이너의 100% 넓이 높이 지정*/
+.image {
+	width: 100%;
+	height: 100%;
+	/*이미지가 어떻게 fit 을 할건지 지정*/
+	object-fit: cover;
+}
+
+.image1 {
+	/*부모 컨테이너에서 지정한 template areas 의 위치 에 지정*/
+	grid-area: a;
+}
+.image2 {
+	grid-area: b;
+}
+.image3 {
+	grid-area: c;
+}
+.image4 {
+	grid-area: d;
+}
+.image5 {
+	grid-area: e;
+}
+.image6 {
+	grid-area: f;
+}
+.image7 {
+	grid-area: g;
+}

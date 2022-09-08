@@ -1,0 +1,54 @@
+body {
+	font-size: 2rem;
+	font-weight: bold;
+	background-color: white;
+}
+
+header,
+main,
+aside,
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+header {
+	background-color: black;
+	color: white;
+}
+aside {
+	background-color: #ff9d00;
+}
+footer{
+	background-color: black;
+	color: white;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	display: grid;
+	/*2 개의 열중 하나는 3 배 하나는 1 배로 지정*/
+	grid-template-columns: 3fr 1fr;
+	/*header 는 100 px 유지 중간은 유동적으로 변경되도록 auto footer 는 50px 유지*/
+	grid-template-rows: 100px auto 50px;
+	grid-template-areas:
+		'header header'
+	  'main side'
+		'footer footer'
+}
+header {
+	grid-area: header;
+}
+
+main {
+	grid-area: main;
+}
+
+aside {
+	grid-area: side;
+}
+
+footer {
+	grid-area: footer;
+}

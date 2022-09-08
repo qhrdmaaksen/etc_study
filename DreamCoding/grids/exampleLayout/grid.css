@@ -1,0 +1,50 @@
+.container {
+	/*container grid 정의*/
+	display: grid;
+
+	/*column 의 갯수 및 사이즈 지정*/
+	/*grid-template-columns: 100px 100px 100px;*/
+
+	/*5 번을 100px 로 반복*/
+	/*grid-template-columns: repeat(5, 100px);*/
+
+	/*5번 20% 씩*/
+	/*grid-template-columns: repeat(5, 20%);*/
+
+	/*5번 fr 로 비율로 나누기*/
+	grid-template-columns: repeat(5, 1fr);
+
+	/*grid-template-rows: 100px 200px repeat(2, 100px);*/
+
+	/*몇줄인지 모르겠지만 갯수에 상관없이 각 줄당 150px 씩 만든다*/
+	/*grid-auto-rows: 150px;*/
+
+	/*몇줄인지 모르겠지만 갯수에 상관없이 150px 로 설정하되 텍스트가 150px 를 넘어갈 시 자동으로 늘어남*/
+	grid-auto-rows: minmax(150px, auto);
+
+	/*gap column 지정*/
+	grid-column-gap: 10px;
+
+	/*gap row 지정*/
+	grid-row-gap: 10px;
+
+	/*grid 전체 10px gap 지정*/
+	padding: 10px;
+}
+
+/*start 는 시작 점 기준 1 2 3 end 는 끝점에서 -1 -2 -3*/
+/*item2 class 의 column 2 번째부터 4번째까지 넓히기
+*-item2 class 의 row 1 번째부터 3번째까지 넓히기*/
+.item2 {
+	/*start end 없이 2/4 로 같은 기능 구현을 한다*/
+	/*grid-column: 2/4;*/
+	/*grid-column: 2 / span 2; !*2 개 셀 영역을 사용 의미*!*/
+	grid-column: 2/ -1; /*제일 끝까지 영역 사용*/
+	/*grid-column-start: 2;
+	grid-column-end: 4;*/
+
+	/*start end 없이 1/3 으로 같은 기능 구현을 한다*/
+	grid-row: 1/3;
+	/*grid-row-start: 1;
+	grid-row-end: 3;*/
+}
